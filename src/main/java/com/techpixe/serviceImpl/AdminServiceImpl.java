@@ -17,15 +17,15 @@ public class AdminServiceImpl implements AdminService {
 	private AdminRepository adminRepository;
 
 	@Override
-	public ResponseEntity<?> loginByEmail(String email, String Password) {
+	public ResponseEntity<?> loginByEmail(String email, String password) {
 		Admin admin1 = adminRepository.findByEmail(email);
 
-		if (admin1 != null && admin1.getPassword().equals(Password)) {
+		if (admin1 != null && admin1.getPassword().equals(password)) {
 			AdminDTO adminDTO = new AdminDTO();
 			adminDTO.setId(admin1.getId());
 			adminDTO.setName(admin1.getName());
 			adminDTO.setEmail(email);
-			adminDTO.setPassword(Password);
+			adminDTO.setPassword(password);
 			adminDTO.setRole(admin1.getRole());
 
 			return ResponseEntity.ok(adminDTO);

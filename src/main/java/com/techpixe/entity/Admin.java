@@ -25,7 +25,7 @@ public class Admin
 	
 	private String email;
 	
-	private String Password;
+	private String password;
 	
 	private String role;
 
@@ -65,11 +65,11 @@ public class Admin
 
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		password = password;
 	}
 
 	public String getRole() {

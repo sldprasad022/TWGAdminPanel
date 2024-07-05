@@ -1,0 +1,2854 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_IN_PAGE_ERROR (0xc0000006) at pc=0x00007ff961231b79, pid=4764, tid=2220
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.3+9 (21.0.3+9) (build 21.0.3+9-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-21.0.3+9 (21.0.3+9-LTS, mixed mode, emulated-client, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [jimage.dll+0x1b79]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58743 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=TWGAdminPanel -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages com.techpixe.TwgAdminPanelApplication --spring.output.ansi.enabled=always
+
+Host: Intel(R) Core(TM) i5 CPU         650  @ 3.20GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Fri Jul  5 14:18:19 2024 India Standard Time elapsed time: 6784.014137 seconds (0d 1h 53m 4s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000020736be7070):  JavaThread "http-nio-8088-exec-3" daemon [_thread_in_vm, id=2220, stack(0x0000004b5e600000,0x0000004b5e700000) (1024K)]
+
+Stack: [0x0000004b5e600000,0x0000004b5e700000],  sp=0x0000004b5e6fc140,  free space=1008k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [jimage.dll+0x1b79]
+C  [jimage.dll+0x1d03]
+C  [jimage.dll+0x25c9]
+V  [jvm.dll+0x21d792]
+V  [jvm.dll+0x21c886]
+V  [jvm.dll+0x81adc1]
+V  [jvm.dll+0x81bdf4]
+V  [jvm.dll+0x81c3ad]
+V  [jvm.dll+0x81c048]
+V  [jvm.dll+0x26bc0b]
+V  [jvm.dll+0x3d086e]
+C  0x0000020728418813
+
+The last pc belongs to new (printed below).
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.util.stream.ReferencePipeline.mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;+5 java.base@21.0.3
+j  org.apache.catalina.core.ApplicationHttpRequest.<clinit>()V+155
+v  ~StubRoutines::call_stub 0x0000020728401015
+j  org.apache.catalina.core.ApplicationDispatcher.wrapRequest(Lorg/apache/catalina/core/ApplicationDispatcher$State;)Ljakarta/servlet/ServletRequest;+198
+j  org.apache.catalina.core.ApplicationDispatcher.doForward(Ljakarta/servlet/ServletRequest;Ljakarta/servlet/ServletResponse;)V+174
+j  org.apache.catalina.core.ApplicationDispatcher.forward(Ljakarta/servlet/ServletRequest;Ljakarta/servlet/ServletResponse;)V+55
+j  org.apache.catalina.core.StandardHostValve.custom(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;Lorg/apache/tomcat/util/descriptor/web/ErrorPage;)Z+180
+j  org.apache.catalina.core.StandardHostValve.status(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V+159
+j  org.apache.catalina.core.StandardHostValve.throwable(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;Ljava/lang/Throwable;)V+319
+J 14731 c1 org.apache.catalina.core.StandardHostValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V (405 bytes) @ 0x0000020729a7aa2c [0x0000020729a79f00+0x0000000000000b2c]
+J 14730 c1 org.apache.catalina.valves.ErrorReportValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V (153 bytes) @ 0x0000020729a7879c [0x0000020729a78720+0x000000000000007c]
+J 14729 c1 org.apache.catalina.core.StandardEngineValve.invoke(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V (65 bytes) @ 0x0000020729a73104 [0x0000020729a72f00+0x0000000000000204]
+J 14390 c1 org.apache.catalina.connector.CoyoteAdapter.service(Lorg/apache/coyote/Request;Lorg/apache/coyote/Response;)V (893 bytes) @ 0x00000207299bb1ac [0x00000207299baa40+0x000000000000076c]
+J 14245 c1 org.apache.coyote.http11.Http11Processor.service(Lorg/apache/tomcat/util/net/SocketWrapperBase;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState; (1252 bytes) @ 0x0000020729959fac [0x00000207299592e0+0x0000000000000ccc]
+J 14244 c1 org.apache.coyote.AbstractProcessorLight.process(Lorg/apache/tomcat/util/net/SocketWrapperBase;Lorg/apache/tomcat/util/net/SocketEvent;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState; (314 bytes) @ 0x00000207299574f4 [0x0000020729957140+0x00000000000003b4]
+J 14242 c1 org.apache.coyote.AbstractProtocol$ConnectionHandler.process(Lorg/apache/tomcat/util/net/SocketWrapperBase;Lorg/apache/tomcat/util/net/SocketEvent;)Lorg/apache/tomcat/util/net/AbstractEndpoint$Handler$SocketState; (1288 bytes) @ 0x000002072995fe14 [0x000002072995ebe0+0x0000000000001234]
+J 14241 c1 org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun()V (600 bytes) @ 0x0000020729954b5c [0x0000020729954660+0x00000000000004fc]
+J 14239 c1 org.apache.tomcat.util.net.SocketProcessorBase.run()V (54 bytes) @ 0x0000020729953ecc [0x0000020729953e00+0x00000000000000cc]
+j  org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(Lorg/apache/tomcat/util/threads/ThreadPoolExecutor$Worker;)V+92
+j  org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run()V+5
+j  org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run()V+4
+j  java.lang.Thread.runWith(Ljava/lang/Object;Ljava/lang/Runnable;)V+5 java.base@21.0.3
+j  java.lang.Thread.run()V+19 java.base@21.0.3
+v  ~StubRoutines::call_stub 0x0000020728401015
+
+siginfo: EXCEPTION_IN_PAGE_ERROR (0xc0000006), reading address 0x00000207249d9c00
+
+
+Registers:
+RAX=0x000000000000dc14, RBX=0x0000004b5e6fc231, RCX=0x00007ff961236000, RDX=0x00000000000066f9
+RSP=0x0000004b5e6fc140, RBP=0x0000004b5e6fc230, RSI=0x0000000000007769, RDI=0x0000004b5e6fc230
+R8 =0x00007ff961234298, R9 =0x00000207249c001c, R10=0x00007ff95e2d0000, R11=0x00007ff961236000
+R12=0x000002072fb73d50, R13=0x0000020736be7070, R14=0x0000004b5e6fd2f0, R15=0x000002072fb73d88
+RIP=0x00007ff961231b79, EFLAGS=0x0000000000010246
+
+
+Register to memory mapping:
+
+RAX=0x000000000000dc14 is an unknown value
+RBX=0x0000004b5e6fc231 is pointing into the stack for thread: 0x0000020736be7070
+RCX=0x00007ff961236000 jimage.dll
+RDX=0x00000000000066f9 is an unknown value
+RSP=0x0000004b5e6fc140 is pointing into the stack for thread: 0x0000020736be7070
+RBP=0x0000004b5e6fc230 is pointing into the stack for thread: 0x0000020736be7070
+RSI=0x0000000000007769 is an unknown value
+RDI=0x0000004b5e6fc230 is pointing into the stack for thread: 0x0000020736be7070
+R8 =0x00007ff961234298 jimage.dll
+R9 =0x00000207249c001c is an unknown value
+R10=0x00007ff95e2d0000 VCRUNTIME140.dll
+R11=0x00007ff961236000 jimage.dll
+R12=0x000002072fb73d50 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+R13=0x0000020736be7070 is a thread
+R14=0x0000004b5e6fd2f0 is pointing into the stack for thread: 0x0000020736be7070
+R15=0x000002072fb73d88 points into unknown readable memory: 0x6974752f6176616a | 6a 61 76 61 2f 75 74 69
+
+Top of Stack: (sp=0x0000004b5e6fc140)
+0x0000004b5e6fc140:   00000207388d7501 00007ff91ede2200
+0x0000004b5e6fc150:   0000020736be7070 0000004b5e6fc239
+0x0000004b5e6fc160:   0000020722f13290 00007ff961231d03
+0x0000004b5e6fc170:   0000000000000002 0000020722f13290
+0x0000004b5e6fc180:   0000000000000000 0000004b5e6fc2d8
+0x0000004b5e6fc190:   0000020736be7070 00000207367bc670
+0x0000004b5e6fc1a0:   000002072fb73d50 000002072fb73d60
+0x0000004b5e6fc1b0:   0000004b5e6fc578 00007ff91efc12c5
+0x0000004b5e6fc1c0:   00003a134dd96fe6 00000207363f45a0
+0x0000004b5e6fc1d0:   0000569123865b2b 00007ff91efc1155
+0x0000004b5e6fc1e0:   00007ff91f4e4000 000000000000002a
+0x0000004b5e6fc1f0:   0000020722f13290 0000004b5e6fd2f0
+0x0000004b5e6fc200:   0000000000000002 00007ff9612325c9
+0x0000004b5e6fc210:   00000207369bd988 00007ff91f3bbfd8
+0x0000004b5e6fc220:   0000020730000640 0000020730000640
+0x0000004b5e6fc230:   752f6176616a2f2f 657274732f6c6974
+0x0000004b5e6fc240:   72656665522f6d61 6570695065636e65
+0x0000004b5e6fc250:   632e3424656e696c 000000007373616c
+0x0000004b5e6fc260:   0000004b5e6fc578 00000207388d74f9
+0x0000004b5e6fc270:   000002072f0bdb38 0000020730000640
+0x0000004b5e6fc280:   0000020736be7070 0000004b5e6fc3a0
+0x0000004b5e6fc290:   0000000000000000 00007ff91f170d30
+0x0000004b5e6fc2a0:   0000000000000000 0000000000000000
+0x0000004b5e6fc2b0:   0000020736be7070 000002072f0b7fd0
+0x0000004b5e6fc2c0:   0000020736be7070 00007ff91f236e4f
+0x0000004b5e6fc2d0:   0000020730000640 0000020730000640
+0x0000004b5e6fc2e0:   0000020736be7070 0000000096e9ee89
+0x0000004b5e6fc2f0:   0000000000000000 00007ff91f2b1605
+0x0000004b5e6fc300:   00007ff91f8427a8 00007ff91efc12c5
+0x0000004b5e6fc310:   00007ff91f8427a8 000002072f3803b0
+0x0000004b5e6fc320:   00000000c25ccd70 00007ff91f16d729
+0x0000004b5e6fc330:   0000000100b8cce0 0000020736be7070 
+
+Instructions: (pc=0x00007ff961231b79)
+0x00007ff961231a79:   48 85 c9 74 1d 80 3d 8b 45 00 00 00 74 06 48 8b
+0x00007ff961231a89:   53 18 eb 04 48 8b 53 40 e8 8e 0e 00 00 48 83 63
+0x00007ff961231a99:   48 00 8b 4b 0c 83 f9 ff 74 09 e8 c4 0c 00 00 83
+0x00007ff961231aa9:   4b 0c ff 48 8b 4b 70 48 85 c9 74 0f ba 10 00 00
+0x00007ff961231ab9:   00 e8 e5 0e 00 00 48 83 63 70 00 48 83 c4 20 5b
+0x00007ff961231ac9:   c3 cc cc 40 53 48 83 ec 20 48 8b d9 48 8d 0d 44
+0x00007ff961231ad9:   47 00 00 e8 93 0c 00 00 83 6b 08 01 75 24 48 8b
+0x00007ff961231ae9:   d3 48 8d 0d 27 45 00 00 e8 1a 08 00 00 48 8b cb
+0x00007ff961231af9:   e8 d6 fe ff ff ba 78 00 00 00 48 8b cb e8 99 0e
+0x00007ff961231b09:   00 00 48 8d 0d 0e 47 00 00 48 83 c4 20 5b e9 60
+0x00007ff961231b19:   0c 00 00 48 89 5c 24 08 48 89 74 24 10 57 48 83
+0x00007ff961231b29:   ec 20 41 8b f1 4d 8b c8 48 8b fa 4c 8b d9 4d 85
+0x00007ff961231b39:   c0 74 73 85 f6 74 6f 44 8a 12 48 8d 5a 01 48 8b
+0x00007ff961231b49:   d3 b8 93 01 00 01 eb 12 69 c0 93 01 00 01 41 0f
+0x00007ff961231b59:   b6 ca 44 8a 12 33 c1 48 ff c2 45 84 d2 75 e9 4d
+0x00007ff961231b69:   8b 03 33 d2 0f ba f0 1f 49 8b cb f7 f6 48 63 d2
+0x00007ff961231b79:   41 8b 14 91 41 ff 50 08 85 c0 7e 24 8a 0f eb 10
+0x00007ff961231b89:   69 c0 93 01 00 01 0f b6 c9 33 c1 8a 0b 48 ff c3
+0x00007ff961231b99:   84 c9 75 ec 0f ba f0 1f 33 d2 f7 f6 8b c2 eb 09
+0x00007ff961231ba9:   79 04 f7 d0 eb 03 83 c8 ff 48 8b 5c 24 30 48 8b
+0x00007ff961231bb9:   74 24 38 48 83 c4 20 5f c3 cc cc 48 89 5c 24 08
+0x00007ff961231bc9:   48 89 74 24 10 57 48 83 ec 20 48 8b f1 48 8d 0d
+0x00007ff961231bd9:   43 46 00 00 e8 92 0b 00 00 33 ff 39 3d 2e 44 00
+0x00007ff961231be9:   00 76 24 48 8b 05 2d 44 00 00 48 8b d6 48 8b 1c
+0x00007ff961231bf9:   f8 48 8b 0b e8 68 1e 00 00 85 c0 74 2b ff c7 3b
+0x00007ff961231c09:   3d 0a 44 00 00 72 dc 33 db 48 8d 0d 07 46 00 00
+0x00007ff961231c19:   e8 5e 0b 00 00 48 8b 74 24 38 48 8b c3 48 8b 5c
+0x00007ff961231c29:   24 30 48 83 c4 20 5f c3 ff 43 08 eb dc cc cc 48
+0x00007ff961231c39:   89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 48 8b
+0x00007ff961231c49:   d9 48 8b f2 48 8b 49 10 49 8b f8 8b 53 30 48 8b
+0x00007ff961231c59:   01 ff 50 20 4c 8b 43 50 48 8b d6 48 8b 4b 10 44
+0x00007ff961231c69:   8b c8 e8 ac fe ff ff 83 f8 ff 74 38 48 8b 4b 10 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x00000207388d7501 is pointing into metadata
+stack at sp + 1 slots: 0x00007ff91ede2200 jvm.dll
+stack at sp + 2 slots: 0x0000020736be7070 is a thread
+stack at sp + 3 slots: 0x0000004b5e6fc239 is pointing into the stack for thread: 0x0000020736be7070
+stack at sp + 4 slots: 0x0000020722f13290 points into unknown readable memory: 0x0000020722ef67d0 | d0 67 ef 22 07 02 00 00
+stack at sp + 5 slots: 0x00007ff961231d03 jimage.dll
+stack at sp + 6 slots: 0x0000000000000002 is an unknown value
+stack at sp + 7 slots: 0x0000020722f13290 points into unknown readable memory: 0x0000020722ef67d0 | d0 67 ef 22 07 02 00 00
+
+new  187 new  [0x00000207284186a0, 0x0000020728418898]  504 bytes
+[MachCode]
+  0x00000207284186a0: 4883 ec08 | f30f 1104 | 24eb 1f48 | 83ec 10f2 | 0f11 0424 | eb14 4883 | ec10 4889 | 0424 48c7 
+  0x00000207284186c0: 4424 0800 | 0000 00eb | 0150 410f | b755 010f | cac1 ea10 | 488b 4de8 | 488b 4908 | 488b 4908 
+  0x00000207284186e0: 488b 4108 | 807c 1004 | 070f 85ca | 0000 0066 | 8b54 d148 | 488b 4928 | 488b 4cd1 | 0851 80b9 
+  0x0000020728418700: 2001 0000 | 050f 85ad | 0000 008b | 5108 f6c2 | 010f 85a1 | 0000 0049 | 8b87 b801 | 0000 488d 
+  0x0000020728418720: 1c10 493b | 9fc8 0100 | 000f 8789 | 0000 0049 | 899f b801 | 0000 4883 | ea10 0f84 | 0f00 0000 
+  0x0000020728418740: 33c9 c1ea | 0348 894c | d008 48ff | ca75 f648 | c700 0100 | 0000 5933 | f689 700c | 48c1 e903 
+  0x0000020728418760: 8948 0849 | ba19 9a82 | 1ff9 7f00 | 0041 803a | 000f 843c | 0000 0050 | 488b c848 | 83ec 2040 
+  0x0000020728418780: f6c4 0f0f | 8419 0000 | 0048 83ec | 0848 b870 | f12c 1ff9 | 7f00 00ff | d048 83c4 | 08e9 0c00 
+  0x00000207284187a0: 0000 48b8 | 70f1 2c1f | f97f 0000 | ffd0 4883 | c420 58e9 | c500 0000 | 5948 8b55 | e848 8b52 
+  0x00000207284187c0: 0848 8b52 | 0845 0fb7 | 4501 410f | c841 c1e8 | 10e8 0500 | 0000 e9a2 | 0000 0048 | 8d44 2408 
+  0x00000207284187e0: 4c89 6dc0 | 498b cf49 | 89af a803 | 0000 4989 | 8798 0300 | 0048 83ec | 2040 f6c4 | 0f0f 8419 
+  0x0000020728418800: 0000 0048 | 83ec 0848 | b820 08f7 | 1ef9 7f00 | 00ff d048 | 83c4 08e9 | 0c00 0000 | 48b8 2008 
+  0x0000020728418820: f71e f97f | 0000 ffd0 | 4883 c420 | 49c7 8798 | 0300 0000 | 0000 0049 | c787 a803 | 0000 0000 
+  0x0000020728418840: 0000 49c7 | 87a0 0300 | 0000 0000 | 0049 837f | 0800 0f84 | 0500 0000 | e9a3 86fe | ff49 8b87 
+  0x0000020728418860: f003 0000 | 49c7 87f0 | 0300 0000 | 0000 004c | 8b6d c04c | 8b75 c84e | 8d74 f500 | c341 0fb6 
+  0x0000020728418880: 5d03 4983 | c503 49ba | 205b 851f | f97f 0000 | 41ff 24da | 0f1f 4000 
+[/MachCode]
+
+Compiled method (c1) 6784124 14731   !   1       org.apache.catalina.core.StandardHostValve::invoke (405 bytes)
+ total in heap  [0x0000020729a79a90,0x0000020729a7c808] = 11640
+ relocation     [0x0000020729a79bf0,0x0000020729a79f00] = 784
+ main code      [0x0000020729a79f00,0x0000020729a7b1f8] = 4856
+ stub code      [0x0000020729a7b1f8,0x0000020729a7b418] = 544
+ oops           [0x0000020729a7b418,0x0000020729a7b430] = 24
+ metadata       [0x0000020729a7b430,0x0000020729a7b5d0] = 416
+ scopes data    [0x0000020729a7b5d0,0x0000020729a7bb08] = 1336
+ scopes pcs     [0x0000020729a7bb08,0x0000020729a7c0f8] = 1520
+ dependencies   [0x0000020729a7c0f8,0x0000020729a7c150] = 88
+ handler table  [0x0000020729a7c150,0x0000020729a7c700] = 1456
+ nul chk table  [0x0000020729a7c700,0x0000020729a7c808] = 264
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000002073220e118} 'invoke' '(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V' in 'org/apache/catalina/core/StandardHostValve'
+  # this:     rdx:rdx   = 'org/apache/catalina/core/StandardHostValve'
+  # parm0:    r8:r8     = 'org/apache/catalina/connector/Request'
+  # parm1:    r9:r9     = 'org/apache/catalina/connector/Response'
+  #           [sp+0x110]  (sp of caller)
+  0x0000020729a79f00: 448b 5208 | 49c1 e203 
+
+  0x0000020729a79f08: ;   {runtime_call ic_miss_stub}
+  0x0000020729a79f08: 4c3b d00f | 856f 489d | fe66 6666 | 0f1f 8400 | 0000 0000 | 6666 6690 
+[Verified Entry Point]
+  0x0000020729a79f20: 8984 2400 | 80ff ff55 | 4881 ec00 | 0100 0090 | 4181 7f20 | 2000 0000 
+
+  0x0000020729a79f38: ;   {runtime_call StubRoutines (final stubs)}
+  0x0000020729a79f38: 7405 e861 | ae9b fe48 | 8994 24a0 | 0000 004c | 8984 2488 | 0000 004c | 898c 2498 | 0000 0041 
+  0x0000020729a79f58: 8bb0 9400 | 0000 8b76 | 1848 89b4 | 2490 0000 | 0048 85f6 | 0f85 2b00 | 0000 418b | 5114 8b52 
+  0x0000020729a79f78: 5c8b 520c | 85d2 ba00 | 0000 007e | 05ba 0100 | 0000 83e2 | 0183 e201 | 85d2 0f85 | fc0d 0000 
+  0x0000020729a79f98: e9cd 0d00 | 0041 8bb8 | 8400 0000 | 4885 ff0f | 850a 0000 | 00bf 0100 | 0000 e90a | 0000 000f 
+  0x0000020729a79fb8: be7f 0c83 | e701 83e7 | 0185 ff0f | 84be 0000 | 0048 85f6 | 0f84 2000 
+
+  0x0000020729a79fd0: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a79fd0: 0000 48b9 | 00a0 4900 | 0100 0000 | 8b46 0848 | c1e0 0348 | 3b48 500f | 85ba 0f00 | 00e9 0000 
+  0x0000020729a79ff0: 0000 488b | fe8b 7e58 | 4885 ff0f | 8420 0000 
+
+  0x0000020729a7a000: ;   {metadata('org/apache/catalina/core/StandardPipeline')}
+  0x0000020729a7a000: 0049 bb98 | 8e4d 0001 | 0000 008b | 4f08 48c1 | e103 4c3b | 5940 0f85 | 950f 0000 | e900 0000 
+  0x0000020729a7a020: 0048 8bdf 
+
+  0x0000020729a7a024: ; implicit exception: dispatches to 0x0000020729a7afb6
+  0x0000020729a7a024: 483b 0748 | 8bd7 0f1f 
+
+  0x0000020729a7a02c: ;   {optimized virtual_call}
+  0x0000020729a7a02c: 4400 00e8 
+
+  0x0000020729a7a030: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface isAsyncSupported {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@38 (line 93)
+  0x0000020729a7a030: 2ced bfff 
+
+  0x0000020729a7a034: ;   {other}
+  0x0000020729a7a034: 0f1f 8400 | a405 0000 
+
+  0x0000020729a7a03c: ;   {oop(a 'java/lang/Boolean'{0x00000000c26fb0c8} = false)}
+  0x0000020729a7a03c: 85c0 48ba | c8b0 6fc2 | 0000 0000 
+
+  0x0000020729a7a048: ;   {oop(a 'java/lang/Boolean'{0x00000000c26caec8} = true)}
+  0x0000020729a7a048: 740a 48ba | c8ae 6cc2 | 0000 0000 | 410f be77 | 4085 f64c | 8b84 2488 | 0000 000f | 8552 0f00 
+  0x0000020729a7a068: 004c 8bd2 | 4589 9084 | 0000 0049 | 8bf0 4833 | f248 c1ee | 1448 83fe | 000f 8553 | 0f00 0041 
+  0x0000020729a7a088: 8b90 8000 | 0000 4885 | d20f 850a | 0000 00be | 0000 0000 | e99b 0000 
+
+  0x0000020729a7a0a0: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a7a0a0: 0048 ba88 | 3011 0001 | 0000 0049 | 8b87 b801 | 0000 488d | 7810 493b | bfc8 0100 | 000f 872f 
+  0x0000020729a7a0c0: 0f00 0049 | 89bf b801 | 0000 48c7 | 0001 0000 | 0048 8bca | 48c1 e903 | 8948 0848 | 33c9 8948 
+  0x0000020729a7a0e0: 0c48 33c9 | 418b 5020 
+
+  0x0000020729a7a0e8: ; implicit exception: dispatches to 0x0000020729a7afff
+                      ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cb450})}
+  0x0000020729a7a0e8: 483b 0249 | b850 b42c | c400 0000 | 004c 8bc8 | 4889 8424 | a800 0000 | 0f1f 8000 
+
+  0x0000020729a7a104: ;   {optimized virtual_call}
+  0x0000020729a7a104: 0000 00e8 
+
+  0x0000020729a7a108: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [168]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@47 (line 96)
+  0x0000020729a7a108: 7449 9dfe 
+
+  0x0000020729a7a10c: ;   {other}
+  0x0000020729a7a10c: 0f1f 8400 | 7c06 0001 | 488b 8424 | a800 0000 | 448b 400c | 4585 c041 | b800 0000 | 0074 0641 
+  0x0000020729a7a12c: b801 0000 | 0041 83e0 | 0141 83e0 | 0149 8bf0 | 89b4 24b0 | 0000 0048 | 8bb4 2490 | 0000 0048 
+  0x0000020729a7a14c: 85f6 0f84 | 2000 0000 
+
+  0x0000020729a7a154: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a154: 48bb 00a0 | 4900 0100 | 0000 8b56 | 0848 c1e2 | 0348 3b5a | 500f 8595 | 0e00 00e9 | 0000 0000 
+  0x0000020729a7a174: 4c8b c648 
+
+  0x0000020729a7a178: ;   {oop(a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000000c25d9300})}
+  0x0000020729a7a178: 3b06 49b9 | 0093 5dc2 | 0000 0000 | 41b8 0000 | 0000 488b 
+
+  0x0000020729a7a18c: ;   {optimized virtual_call}
+  0x0000020729a7a18c: d666 90e8 
+
+  0x0000020729a7a190: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface bind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@59 (line 99)
+  0x0000020729a7a190: 8c49 93ff 
+
+  0x0000020729a7a194: ;   {other}
+  0x0000020729a7a194: 0f1f 8400 | 0407 0002 | 8bb4 24b0 | 0000 0085 | f689 b424 | b000 0000 | 0f85 6a00 | 0000 488b 
+  0x0000020729a7a1b4: 9424 8800 | 0000 0f1f 
+
+  0x0000020729a7a1bc: ;   {optimized virtual_call}
+  0x0000020729a7a1bc: 4400 00e8 
+
+  0x0000020729a7a1c0: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual getRequest {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@72 (line 101)
+  0x0000020729a7a1c0: 9c67 c5ff 
+
+  0x0000020729a7a1c4: ;   {other}
+  0x0000020729a7a1c4: 0f1f 8400 | 3407 0003 | 488b b424 | 9000 0000 | 4885 f60f | 8420 0000 
+
+  0x0000020729a7a1dc: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a1dc: 0048 bb00 | a049 0001 | 0000 008b | 7e08 48c1 | e703 483b | 5f50 0f85 | 160e 0000 | e900 0000 
+  0x0000020729a7a1fc: 004c 8bc6 | 4c8b c048 
+
+  0x0000020729a7a204: ;   {optimized virtual_call}
+  0x0000020729a7a204: 8bd6 90e8 
+
+  0x0000020729a7a208: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface fireRequestInitEvent {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@75 (line 101)
+  0x0000020729a7a208: b4d4 ffff 
+
+  0x0000020729a7a20c: ;   {other}
+  0x0000020729a7a20c: 0f1f 8400 | 7c07 0004 | 85c0 0f84 | ed00 0000 | 4c8b 8c24 | 9800 0000 
+
+  0x0000020729a7a224: ; implicit exception: dispatches to 0x0000020729a7b013
+  0x0000020729a7a224: 458b 4114 
+
+  0x0000020729a7a228: ; implicit exception: dispatches to 0x0000020729a7b018
+  0x0000020729a7a228: 458b 405c 
+
+  0x0000020729a7a22c: ; implicit exception: dispatches to 0x0000020729a7b01d
+  0x0000020729a7a22c: 458b 400c | 4183 f801 | 41b8 0000 | 0000 7506 | 41b8 0100 | 0000 4183 | e001 4183 | e001 4585 
+  0x0000020729a7a24c: c00f 85a9 | 0000 0048 | 8bb4 2490 | 0000 0048 | 85f6 0f84 | 2000 0000 
+
+  0x0000020729a7a264: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a264: 48bb 00a0 | 4900 0100 | 0000 8b7e | 0848 c1e7 | 0348 3b5f | 500f 85a3 | 0d00 00e9 | 0000 0000 
+  0x0000020729a7a284: 4c8b c644 | 8b46 584d | 85c0 0f84 | 2100 0000 
+
+  0x0000020729a7a294: ;   {metadata('org/apache/catalina/core/StandardPipeline')}
+  0x0000020729a7a294: 48b8 988e | 4d00 0100 | 0000 418b | 5808 48c1 | e303 483b | 4340 0f85 | 770d 0000 | e900 0000 
+  0x0000020729a7a2b4: 0049 8bd0 
+
+  0x0000020729a7a2b8: ; implicit exception: dispatches to 0x0000020729a7b02c
+  0x0000020729a7a2b8: 418b 5020 | 4885 d20f | 8405 0000 | 00e9 0700 | 0000 458b | 4018 498b | d04c 8b84 | 2488 0000 
+  0x0000020729a7a2d8: 0049 8bf9 | 4c8b cf66 | 0f1f 4400 | 0048 b8e0 | 1c37 0001 
+
+  0x0000020729a7a2ec: ;   {virtual_call}
+  0x0000020729a7a2ec: 0000 00e8 
+
+  0x0000020729a7a2f0: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface invoke {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@131 (line 115)
+  0x0000020729a7a2f0: 0c46 0000 
+
+  0x0000020729a7a2f4: ;   {other}
+  0x0000020729a7a2f4: 0f1f 8400 | 6408 0005 | 4c8b 8c24 | 9800 0000 | e9cb 0400 | 0048 8bb4 | 2490 0000 | 0048 85f6 
+  0x0000020729a7a314: 0f84 2000 
+
+  0x0000020729a7a318: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a318: 0000 48bb | 00a0 4900 | 0100 0000 | 8b7e 0848 | c1e7 0348 | 3b5f 500f | 85fc 0c00 | 00e9 0000 
+  0x0000020729a7a338: 0000 4c8b | c644 0fbe | 86ca 0000 | 0041 83e0 | 0145 85c0 | 0f84 b009 | 0000 41b8 | 0000 0000 
+  0x0000020729a7a358: 488b 9424 | 8800 0000 | 0f1f 8000 
+
+  0x0000020729a7a364: ;   {optimized virtual_call}
+  0x0000020729a7a364: 0000 00e8 
+
+  0x0000020729a7a368: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokevirtual doGetSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@2 (line 2199)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@94 (line 163)
+  0x0000020729a7a368: 1447 9dfe 
+
+  0x0000020729a7a36c: ;   {other}
+  0x0000020729a7a36c: 0f1f 8400 | dc08 0006 | 4885 c00f | 850f 0000 
+
+  0x0000020729a7a37c: ;   {oop(nullptr)}
+  0x0000020729a7a37c: 0048 be00 | 0000 0000 | 0000 00e9 | 6e09 0000 | 488b d066 | 0f1f 4400 | 0048 b8ff | ffff ffff 
+  0x0000020729a7a39c: ;   {virtual_call}
+  0x0000020729a7a39c: ffff ffe8 
+
+  0x0000020729a7a3a0: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokeinterface getSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@13 (line 2204)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@94 (line 163)
+  0x0000020729a7a3a0: dc49 9dfe 
+
+  0x0000020729a7a3a4: ;   {other}
+  0x0000020729a7a3a4: 0f1f 8400 | 1409 0007 | 488b f0e9 | 4609 0000 | 498b 8700 | 0500 004d | 33d2 4d89 | 9700 0500 
+  0x0000020729a7a3c4: 004d 33d2 | 4d89 9708 | 0500 0048 | 85c0 0f84 | 1f00 0000 
+
+  0x0000020729a7a3d8: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a7a3d8: 48bb 90d7 | 2f00 0100 | 0000 8b70 | 0848 c1e6 | 0348 3bde | 0f85 0500 | 0000 e905 | 0000 0048 
+  0x0000020729a7a3f8: 33d2 eb0a | 48ba 0100 | 0000 0000 | 0000 85d2 | 0f85 ee09 | 0000 4885 | c00f 841f 
+
+  0x0000020729a7a414: ;   {metadata('java/lang/StackOverflowError')}
+  0x0000020729a7a414: 0000 0048 | bb20 6004 | 0001 0000 | 008b 7008 | 48c1 e603 | 483b de0f | 8505 0000 | 00e9 0500 
+  0x0000020729a7a434: 0000 4833 | d2eb 0a48 | ba01 0000 | 0000 0000 | 0085 d20f | 8540 0000 | 0048 85c0 | 0f84 2000 
+  0x0000020729a7a454: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a7a454: 0000 48bb | 1859 0400 | 0100 0000 | 8b78 0848 | c1e7 0348 | 3b5f 480f | 8505 0000 | 00e9 0500 
+  0x0000020729a7a474: 0000 4833 | d2eb 0a48 | ba01 0000 | 0000 0000 | 0085 d20f | 851d 0900 | 0048 8b94 | 24a0 0000 
+  0x0000020729a7a494: 008b 7220 | 4885 f60f | 8420 0000 
+
+  0x0000020729a7a4a0: ;   {metadata('org/apache/catalina/core/ContainerBase')}
+  0x0000020729a7a4a0: 0049 b840 | e649 0001 | 0000 008b | 4e08 48c1 | e103 4c3b | 4148 0f85 | 7a0b 0000 | e900 0000 
+  0x0000020729a7a4c0: 0048 8bfe 
+
+  0x0000020729a7a4c4: ; implicit exception: dispatches to 0x0000020729a7b03b
+  0x0000020729a7a4c4: 8b7e 3c48 | 85ff 0f84 | 1500 0000 | 4889 bc24 | d000 0000 | 4889 8424 | c000 0000 | e982 0000 
+  0x0000020729a7a4e4: 0048 8984 | 24c0 0000 | 0048 8bd6 | 4889 b424 | b800 0000 | 0f1f 8000 
+
+  0x0000020729a7a4fc: ;   {optimized virtual_call}
+  0x0000020729a7a4fc: 0000 00e8 
+
+  0x0000020729a7a500: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop [192]=Oop }
+                      ;*invokevirtual getLogName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.ContainerBase::getLogger@14 (line 300)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@150 (line 119)
+  0x0000020729a7a500: 7c45 9dfe 
+
+  0x0000020729a7a504: ;   {other}
+  0x0000020729a7a504: 0f1f 8400 | 740a 0008 
+
+  0x0000020729a7a50c: ;   {oop(a 'org/apache/juli/logging/LogFactory'{0x00000000c2f31810})}
+  0x0000020729a7a50c: 4c8b c048 | ba10 18f3 | c200 0000 | 0066 0f1f 
+
+  0x0000020729a7a51c: ;   {optimized virtual_call}
+  0x0000020729a7a51c: 4400 00e8 
+
+  0x0000020729a7a520: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop [192]=Oop }
+                      ;*invokevirtual getInstance {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.juli.logging.LogFactory::getLog@4 (line 230)
+                      ; - org.apache.catalina.core.ContainerBase::getLogger@17 (line 300)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@150 (line 119)
+  0x0000020729a7a520: 5c45 9dfe 
+
+  0x0000020729a7a524: ;   {other}
+  0x0000020729a7a524: 0f1f 8400 | 940a 0009 | 410f be5f | 4085 db48 | 8bb4 24b8 | 0000 000f | 85ff 0a00 | 004c 8bd0 
+  0x0000020729a7a544: 4489 563c | 488b de48 | 33d8 48c1 | eb14 4883 | fb00 0f85 | ff0a 0000 | 488b f848 | 89bc 24d0 
+  0x0000020729a7a564: 0000 004c | 8b84 2488 | 0000 00bb | 0100 0000 
+
+  0x0000020729a7a574: ;   {metadata('java/lang/Object'[])}
+  0x0000020729a7a574: 48ba 489e | 0500 0100 | 0000 4863 | db48 8bfb | 4881 fbff | ffff 000f | 87e2 0a00 | 0048 be17 
+  0x0000020729a7a594: 0000 0000 | 0000 0048 | 8d34 9e48 | 83e6 f849 | 8b87 b801 | 0000 488d | 3430 493b | b7c8 0100 
+  0x0000020729a7a5b4: 000f 87b8 | 0a00 0049 | 89b7 b801 | 0000 482b | f048 c700 | 0100 0000 | 488b ca48 | c1e9 0389 
+  0x0000020729a7a5d4: 4808 8958 | 0c48 83ee | 1048 85f6 | 0f84 1100 | 0000 4833 | db48 c1ee | 0348 895c | f008 48ff 
+  0x0000020729a7a5f4: ce75 f641 | 8b50 208b | 5250 483b | 0248 8984 | 24c8 0000 | 0066 0f1f 
+
+  0x0000020729a7a60c: ;   {optimized virtual_call}
+  0x0000020729a7a60c: 4400 00e8 
+
+  0x0000020729a7a610: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [200]=Oop [208]=Oop }
+                      ;*invokevirtual toStringType {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getRequestURI@7 (line 2175)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@167 (line 119)
+  0x0000020729a7a610: 6c44 9dfe 
+
+  0x0000020729a7a614: ;   {other}
+  0x0000020729a7a614: 0f1f 8400 | 840b 000a | 4c8b 8c24 | c800 0000 | 4885 c00f | 844a 0000 | 0045 8b41 | 0849 c1e0 
+  0x0000020729a7a634: 038b 5008 | 48c1 e203 | 4d8b 80d0 | 0000 0049 | 3bd0 0f84 | 2b00 0000 | 418b 7014 | 4c3b 0432 
+  0x0000020729a7a654: 0f84 1d00 | 0000 83fe | 200f 8529 | 0a00 0052 
+
+  0x0000020729a7a664: ;   {runtime_call slow_subtype_check Runtime1 stub}
+  0x0000020729a7a664: 4150 e895 | 75a8 fe5a | 4158 4585 | c00f 8415 | 0a00 004d | 8d41 1041 | 0fbe 5740 | 85d2 0f85 
+  0x0000020729a7a684: 0d0a 0000 | 4c8b d045 | 8910 498b | d048 33d0 | 48c1 ea14 | 4883 fa00 | 0f85 0e0a 
+
+  0x0000020729a7a6a0: ;   {oop("standardHostValve.exception"{0x00000000c4649ea8})}
+  0x0000020729a7a6a0: 0000 49b8 | a89e 64c4 | 0000 0000 
+
+  0x0000020729a7a6ac: ;   {oop(a 'org/apache/tomcat/util/res/StringManager'{0x00000000c2e52948})}
+  0x0000020729a7a6ac: 48ba 4829 | e5c2 0000 
+
+  0x0000020729a7a6b4: ;   {optimized virtual_call}
+  0x0000020729a7a6b4: 0000 90e8 
+
+  0x0000020729a7a6b8: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*invokevirtual getString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@171 (line 119)
+  0x0000020729a7a6b8: c443 9dfe 
+
+  0x0000020729a7a6bc: ;   {other}
+  0x0000020729a7a6bc: 0f1f 8400 | 2c0c 000b | 488b 9424 | d000 0000 | 4885 d20f | 8420 0000 
+
+  0x0000020729a7a6d4: ;   {metadata('org/apache/juli/logging/DirectJDKLog')}
+  0x0000020729a7a6d4: 0048 be30 | b936 0001 | 0000 008b | 7a08 48c1 | e703 483b | 7738 0f85 | d809 0000 | e900 0000 
+  0x0000020729a7a6f4: 004c 8bc2 
+
+  0x0000020729a7a6f8: ; implicit exception: dispatches to 0x0000020729a7b0cd
+  0x0000020729a7a6f8: 483b 0248 | 85c0 0f85 | 0f00 0000 
+
+  0x0000020729a7a704: ;   {oop("null"{0x00000000c29ac8d8})}
+  0x0000020729a7a704: 48b8 d8c8 | 9ac2 0000 | 0000 e903 | 0000 0048 
+
+  0x0000020729a7a714: ;   {oop(a 'java/util/logging/Level'{0x00000000c2a46880})}
+  0x0000020729a7a714: 3b00 49b8 | 8068 a4c2 | 0000 0000 | 4c8b c848 | 8bbc 24c0 | 0000 000f 
+
+  0x0000020729a7a72c: ;   {optimized virtual_call}
+  0x0000020729a7a72c: 1f40 00e8 
+
+  0x0000020729a7a730: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual log {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.juli.logging.DirectJDKLog::error@9 (line 141)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@176 (line 119)
+  0x0000020729a7a730: 4c43 9dfe 
+
+  0x0000020729a7a734: ;   {other}
+  0x0000020729a7a734: 0f1f 8400 | a40c 000c | 4c8b 8c24 | 9800 0000 
+
+  0x0000020729a7a744: ; implicit exception: dispatches to 0x0000020729a7b0d7
+  0x0000020729a7a744: 458b 4114 
+
+  0x0000020729a7a748: ; implicit exception: dispatches to 0x0000020729a7b0dc
+  0x0000020729a7a748: 458b 405c 
+
+  0x0000020729a7a74c: ; implicit exception: dispatches to 0x0000020729a7b0e1
+  0x0000020729a7a74c: 458b 400c | 4183 f801 | 41b8 0000 | 0000 7506 | 41b8 0100 | 0000 4183 | e001 4183 | e001 4585 
+  0x0000020729a7a76c: c00f 8561 
+
+  0x0000020729a7a770: ;   {oop("jakarta.servlet.error.exception"{0x00000000c352ba68})}
+  0x0000020729a7a770: 0000 0049 | b868 ba52 | c300 0000 | 004c 8b8c | 24c0 0000 | 0048 8b94 | 2488 0000 
+
+  0x0000020729a7a78c: ;   {optimized virtual_call}
+  0x0000020729a7a78c: 0066 90e8 
+
+  0x0000020729a7a790: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual setAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@193 (line 123)
+  0x0000020729a7a790: ec42 9dfe 
+
+  0x0000020729a7a794: ;   {other}
+  0x0000020729a7a794: 0f1f 8400 | 040d 000d | 4c8b 8424 | 8800 0000 | 4c8b 8c24 | 9800 0000 | 488b bc24 | c000 0000 
+  0x0000020729a7a7b4: 488b 9424 | a000 0000 
+
+  0x0000020729a7a7bc: ;   {optimized virtual_call}
+  0x0000020729a7a7bc: 6666 90e8 
+
+  0x0000020729a7a7c0: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual throwable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@201 (line 124)
+  0x0000020729a7a7c0: bc42 9dfe 
+
+  0x0000020729a7a7c4: ;   {other}
+  0x0000020729a7a7c4: 0f1f 8400 | 340d 000e | 4c8b 8c24 | 9800 0000 | 458b 4118 | ba00 0000 | 0041 8850 | 2bf0 8344 
+  0x0000020729a7a7e4: ;   {oop("jakarta.servlet.error.exception"{0x00000000c352ba68})}
+  0x0000020729a7a7e4: 24c0 0049 | b868 ba52 | c300 0000 | 0048 8b94 | 2488 0000 | 0066 0f1f 
+
+  0x0000020729a7a7fc: ;   {optimized virtual_call}
+  0x0000020729a7a7fc: 4400 00e8 
+
+  0x0000020729a7a800: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual getAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@212 (line 133)
+  0x0000020729a7a800: 9c62 9aff 
+
+  0x0000020729a7a804: ;   {other}
+  0x0000020729a7a804: 0f1f 8400 | 740d 000f | 4885 c00f | 8420 0000 
+
+  0x0000020729a7a814: ;   {metadata('java/lang/Throwable')}
+  0x0000020729a7a814: 0048 be98 | 3304 0001 | 0000 008b | 5008 48c1 | e203 483b | 7238 0f85 | bb08 0000 | e900 0000 
+  0x0000020729a7a834: 0048 8bd8 | 488b b424 | 9000 0000 | 4885 f60f | 8420 0000 
+
+  0x0000020729a7a848: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a848: 0048 b800 | a049 0001 | 0000 008b | 7e08 48c1 | e703 483b | 4750 0f85 | 9008 0000 | e900 0000 
+  0x0000020729a7a868: 004c 8bc6 | 448b 4614 
+
+  0x0000020729a7a870: ; implicit exception: dispatches to 0x0000020729a7b0f9
+  0x0000020729a7a870: 450f be40 | 1841 83e0 | 0145 85c0 | 0f85 a200 | 0000 4885 | f60f 8420 
+
+  0x0000020729a7a888: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7a888: 0000 0048 | bb00 a049 | 0001 0000 | 008b 7e08 | 48c1 e703 | 483b 5f50 | 0f85 5808 | 0000 e900 
+  0x0000020729a7a8a8: 0000 004c | 8bc6 440f | be86 ca00 | 0000 4183 | e001 4585 | c00f 84cf | 0300 0041 | b800 0000 
+  0x0000020729a7a8c8: 0048 8b94 | 2488 0000 | 0066 0f1f 
+
+  0x0000020729a7a8d4: ;   {optimized virtual_call}
+  0x0000020729a7a8d4: 4400 00e8 
+
+  0x0000020729a7a8d8: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokevirtual doGetSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@2 (line 2199)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@243 (line 163)
+  0x0000020729a7a8d8: a441 9dfe 
+
+  0x0000020729a7a8dc: ;   {other}
+  0x0000020729a7a8dc: 0f1f 8400 | 4c0e 0010 | 4885 c00f | 850f 0000 
+
+  0x0000020729a7a8ec: ;   {oop(nullptr)}
+  0x0000020729a7a8ec: 0048 be00 | 0000 0000 | 0000 00e9 | 8e03 0000 | 488b d066 | 0f1f 4400 | 0048 b8ff | ffff ffff 
+  0x0000020729a7a90c: ;   {virtual_call}
+  0x0000020729a7a90c: ffff ffe8 
+
+  0x0000020729a7a910: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokeinterface getSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@13 (line 2204)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@243 (line 163)
+  0x0000020729a7a910: 6c44 9dfe 
+
+  0x0000020729a7a914: ;   {other}
+  0x0000020729a7a914: 0f1f 8400 | 840e 0011 | 488b f0e9 | 6603 0000 | 4c8b 8c24 | 9800 0000 | 418b 5114 
+
+  0x0000020729a7a930: ; implicit exception: dispatches to 0x0000020729a7b103
+  0x0000020729a7a930: 8b52 5c8b | 520c 83fa | 01ba 0000 | 0000 7505 | ba01 0000 | 0083 e201 | 83e2 0185 | d20f 8401 
+  0x0000020729a7a950: 0100 0048 | 899c 24e0 
+
+  0x0000020729a7a958: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a7a958: 0000 0048 | ba88 3011 | 0001 0000 | 0049 8b87 | b801 0000 | 488d 7810 | 493b bfc8 | 0100 000f 
+  0x0000020729a7a978: 8790 0700 | 0049 89bf | b801 0000 | 48c7 0001 | 0000 0048 | 8bca 48c1 | e903 8948 | 0848 33c9 
+  0x0000020729a7a998: 8948 0c48 | 33c9 418b | 5114 483b 
+
+  0x0000020729a7a9a4: ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cbb38})}
+  0x0000020729a7a9a4: 0249 b838 | bb2c c400 | 0000 004c | 8bc8 4889 | 8424 d800 | 0000 0f1f 
+
+  0x0000020729a7a9bc: ;   {optimized virtual_call}
+  0x0000020729a7a9bc: 4400 00e8 
+
+  0x0000020729a7a9c0: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop [216]=Oop [224]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@286 (line 146)
+  0x0000020729a7a9c0: 3cc3 aeff 
+
+  0x0000020729a7a9c4: ;   {other}
+  0x0000020729a7a9c4: 0f1f 8400 | 340f 0012 | 488b 8424 | d800 0000 | 448b 400c | 4585 c041 | b800 0000 | 0074 0641 
+  0x0000020729a7a9e4: b801 0000 | 0041 83e0 | 0145 85c0 | 0f84 5e00 | 0000 488b | 9c24 e000 | 0000 4885 | db4c 8b84 
+  0x0000020729a7aa04: 2488 0000 | 004c 8b8c | 2498 0000 | 000f 8422 | 0000 0048 | 8bfb 488b | 9424 a000 | 0000 0f1f 
+  0x0000020729a7aa24: ;   {optimized virtual_call}
+  0x0000020729a7aa24: 4400 00e8 
+
+  0x0000020729a7aa28: ; ImmutableOopMap {[136]=Oop [144]=Oop }
+                      ;*invokevirtual throwable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@307 (line 149)
+  0x0000020729a7aa28: ab09 0000 
+
+  0x0000020729a7aa2c: ;   {other}
+  0x0000020729a7aa2c: 0f1f 8400 | 9c0f 0013 | e91b 0000 | 0048 8b94 | 24a0 0000 | 0066 0f1f 
+
+  0x0000020729a7aa44: ;   {optimized virtual_call}
+  0x0000020729a7aa44: 4400 00e8 
+
+  0x0000020729a7aa48: ; ImmutableOopMap {[136]=Oop [144]=Oop }
+                      ;*invokevirtual status {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@316 (line 151)
+  0x0000020729a7aa48: 3440 9dfe 
+
+  0x0000020729a7aa4c: ;   {other}
+  0x0000020729a7aa4c: 0f1f 8400 | bc0f 0014 | 4c8b 8424 | 8800 0000 | 418b 9080 | 0000 0048 | 85d2 0f85 | 0a00 0000 
+  0x0000020729a7aa6c: be00 0000 | 00e9 9000 
+
+  0x0000020729a7aa74: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a7aa74: 0000 48ba | 8830 1100 | 0100 0000 | 498b 87b8 | 0100 0048 | 8d78 1049 | 3bbf c801 | 0000 0f87 
+  0x0000020729a7aa94: 8706 0000 | 4989 bfb8 | 0100 0048 | c700 0100 | 0000 488b | ca48 c1e9 | 0389 4808 | 4833 c989 
+  0x0000020729a7aab4: 480c 4833 | c941 8b50 | 2048 3b02 
+
+  0x0000020729a7aac0: ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cb450})}
+  0x0000020729a7aac0: 49b8 50b4 | 2cc4 0000 | 0000 4c8b | c848 8984 | 24e8 0000 
+
+  0x0000020729a7aad4: ;   {optimized virtual_call}
+  0x0000020729a7aad4: 0066 90e8 
+
+  0x0000020729a7aad8: ; ImmutableOopMap {[136]=Oop [144]=Oop [232]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@320 (line 156)
+  0x0000020729a7aad8: a43f 9dfe 
+
+  0x0000020729a7aadc: ;   {other}
+  0x0000020729a7aadc: 0f1f 8400 | 4c10 0015 | 488b 8424 | e800 0000 | 8b50 0c85 | d2ba 0000 | 0000 7405 | ba01 0000 
+  0x0000020729a7aafc: 0083 e201 | 83e2 0148 | 8bf2 85f6 | 0f85 6e00 | 0000 8bb4 | 24b0 0000 | 0085 f60f | 855f 0000 
+  0x0000020729a7ab1c: 0048 8b94 | 2488 0000 
+
+  0x0000020729a7ab24: ;   {optimized virtual_call}
+  0x0000020729a7ab24: 0066 90e8 
+
+  0x0000020729a7ab28: ; ImmutableOopMap {[136]=Oop [144]=Oop }
+                      ;*invokevirtual getRequest {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@333 (line 157)
+  0x0000020729a7ab28: 345e c5ff 
+
+  0x0000020729a7ab2c: ;   {other}
+  0x0000020729a7ab2c: 0f1f 8400 | 9c10 0016 | 488b b424 | 9000 0000 | 4885 f60f | 8420 0000 
+
+  0x0000020729a7ab44: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ab44: 0048 bb00 | a049 0001 | 0000 008b | 7e08 48c1 | e703 483b | 5f50 0f85 | d105 0000 | e900 0000 
+  0x0000020729a7ab64: 004c 8bc6 | 4c8b c048 
+
+  0x0000020729a7ab6c: ;   {optimized virtual_call}
+  0x0000020729a7ab6c: 8bd6 90e8 
+
+  0x0000020729a7ab70: ; ImmutableOopMap {[136]=Oop [144]=Oop }
+                      ;*invokeinterface fireRequestDestroyEvent {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@336 (line 157)
+  0x0000020729a7ab70: cccb f8ff 
+
+  0x0000020729a7ab74: ;   {other}
+  0x0000020729a7ab74: 0f1f 8400 | e410 0017 | 488b b424 | 9000 0000 | 4885 f60f | 8420 0000 
+
+  0x0000020729a7ab8c: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ab8c: 0048 bb00 | a049 0001 | 0000 008b | 7e08 48c1 | e703 483b | 5f50 0f85 | 8e05 0000 | e900 0000 
+  0x0000020729a7abac: 004c 8bc6 | 440f be86 | ca00 0000 | 4183 e001 | 4585 c00f | 8462 0000 | 0041 b800 | 0000 0048 
+  0x0000020729a7abcc: 8b94 2488 | 0000 000f 
+
+  0x0000020729a7abd4: ;   {optimized virtual_call}
+  0x0000020729a7abd4: 1f40 00e8 
+
+  0x0000020729a7abd8: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokevirtual doGetSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@2 (line 2199)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@353 (line 163)
+  0x0000020729a7abd8: a43e 9dfe 
+
+  0x0000020729a7abdc: ;   {other}
+  0x0000020729a7abdc: 0f1f 8400 | 4c11 0018 | 4885 c00f | 850f 0000 
+
+  0x0000020729a7abec: ;   {oop(nullptr)}
+  0x0000020729a7abec: 0048 be00 | 0000 0000 | 0000 00e9 | 2300 0000 | 488b d066 | 0f1f 4400 | 0048 b8ff | ffff ffff 
+  0x0000020729a7ac0c: ;   {virtual_call}
+  0x0000020729a7ac0c: ffff ffe8 
+
+  0x0000020729a7ac10: ; ImmutableOopMap {[144]=Oop }
+                      ;*invokeinterface getSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@13 (line 2204)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@353 (line 163)
+  0x0000020729a7ac10: 6c41 9dfe 
+
+  0x0000020729a7ac14: ;   {other}
+  0x0000020729a7ac14: 0f1f 8400 | 8411 0019 | 488b f048 | 8bb4 2490 | 0000 0048 | 85f6 0f84 | 2000 0000 
+
+  0x0000020729a7ac30: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ac30: 48bf 00a0 | 4900 0100 | 0000 8b56 | 0848 c1e2 | 0348 3b7a | 500f 85f0 | 0400 00e9 | 0000 0000 
+  0x0000020729a7ac50: ;   {oop(a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000000c25d9300})}
+  0x0000020729a7ac50: 4c8b c649 | b900 935d | c200 0000 | 0041 b800 | 0000 0048 
+
+  0x0000020729a7ac64: ;   {optimized virtual_call}
+  0x0000020729a7ac64: 8bd6 90e8 
+
+  0x0000020729a7ac68: ; ImmutableOopMap {}
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@364 (line 166)
+  0x0000020729a7ac68: f488 c0ff 
+
+  0x0000020729a7ac6c: ;   {other}
+  0x0000020729a7ac6c: 0f1f 8400 | dc11 001a | 4881 c400 | 0100 005d 
+
+  0x0000020729a7ac7c: ;   {poll_return}
+  0x0000020729a7ac7c: 493b a750 | 0400 000f | 87b7 0400 | 00c3 488b | b424 9000 | 0000 4885 | f60f 8420 
+
+  0x0000020729a7ac98: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ac98: 0000 0048 | bf00 a049 | 0001 0000 | 008b 5608 | 48c1 e203 | 483b 7a50 | 0f85 a004 | 0000 e900 
+  0x0000020729a7acb8: 0000 004c 
+
+  0x0000020729a7acbc: ;   {oop(a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000000c25d9300})}
+  0x0000020729a7acbc: 8bc6 49b9 | 0093 5dc2 | 0000 0000 | 41b8 0000 | 0000 488b | d666 0f1f 
+
+  0x0000020729a7acd4: ;   {optimized virtual_call}
+  0x0000020729a7acd4: 4400 00e8 
+
+  0x0000020729a7acd8: ; ImmutableOopMap {}
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@254 (line 166)
+  0x0000020729a7acd8: a43d 9dfe 
+
+  0x0000020729a7acdc: ;   {other}
+  0x0000020729a7acdc: 0f1f 8400 | 4c12 001b | 4881 c400 | 0100 005d 
+
+  0x0000020729a7acec: ;   {poll_return}
+  0x0000020729a7acec: 493b a750 | 0400 000f | 8762 0400 | 00c3 488b | b424 9000 | 0000 4885 | f60f 8420 
+
+  0x0000020729a7ad08: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ad08: 0000 0048 | bf00 a049 | 0001 0000 | 008b 5608 | 48c1 e203 | 483b 7a50 | 0f85 4b04 | 0000 e900 
+  0x0000020729a7ad28: 0000 004c 
+
+  0x0000020729a7ad2c: ;   {oop(a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000000c25d9300})}
+  0x0000020729a7ad2c: 8bc6 49b9 | 0093 5dc2 | 0000 0000 | 41b8 0000 | 0000 488b | d666 0f1f 
+
+  0x0000020729a7ad44: ;   {optimized virtual_call}
+  0x0000020729a7ad44: 4400 00e8 
+
+  0x0000020729a7ad48: ; ImmutableOopMap {}
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@105 (line 166)
+  0x0000020729a7ad48: 343d 9dfe 
+
+  0x0000020729a7ad4c: ;   {other}
+  0x0000020729a7ad4c: 0f1f 8400 | bc12 001c | 4881 c400 | 0100 005d 
+
+  0x0000020729a7ad5c: ;   {poll_return}
+  0x0000020729a7ad5c: 493b a750 | 0400 000f | 870d 0400 | 00c3 41b8 | 9401 0000 
+
+  0x0000020729a7ad70: ;   {oop(nullptr)}
+  0x0000020729a7ad70: 49b9 0000 | 0000 0000 | 0000 488b | 9424 9800 | 0000 0f1f 
+
+  0x0000020729a7ad84: ;   {optimized virtual_call}
+  0x0000020729a7ad84: 4400 00e8 
+
+  0x0000020729a7ad88: ; ImmutableOopMap {}
+                      ;*invokevirtual sendError {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::sendError@3 (line 1066)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@20 (line 87)
+  0x0000020729a7ad88: f43c 9dfe 
+
+  0x0000020729a7ad8c: ;   {other}
+  0x0000020729a7ad8c: 0f1f 8400 | fc12 001d | 4881 c400 | 0100 005d 
+
+  0x0000020729a7ad9c: ;   {poll_return}
+  0x0000020729a7ad9c: 493b a750 | 0400 000f | 87e3 0300 | 00c3 4c8b | c08b b424 | b000 0000 | 488b bc24 | 9000 0000 
+  0x0000020729a7adbc: 4d85 c00f | 8421 0000 
+
+  0x0000020729a7adc4: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a7adc4: 0048 b918 | 5904 0001 | 0000 0041 | 8b58 0848 | c1e3 0348 | 3b4b 480f | 85c1 0300 | 00e9 0000 
+  0x0000020729a7ade4: 0000 498b 
+
+  0x0000020729a7ade8: ; ImmutableOopMap {r8=Oop rdi=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@31 (line 41)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+  0x0000020729a7ade8: c048 3b00 
+
+  0x0000020729a7adec: ;   {section_word}
+  0x0000020729a7adec: 48ba ecad | a729 0702 
+
+  0x0000020729a7adf4: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x0000020729a7adf4: 0000 e805 | 5ca8 fe90 | 4c8b c08b | b424 b000 | 0000 488b | bc24 9000 | 0000 4c8b | 8c24 9800 
+  0x0000020729a7ae14: 0000 488b | 9c24 a000 | 0000 4d85 | c00f 8420 
+
+  0x0000020729a7ae24: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a7ae24: 0000 0049 | bb90 d72f | 0001 0000 | 0041 8b50 | 0848 c1e2 | 034c 3bda | 0f85 6e03 | 0000 e900 
+  0x0000020729a7ae44: 0000 0049 | 8bc0 483b 
+
+  0x0000020729a7ae4c: ; ImmutableOopMap {rdi=Oop rbx=Oop r9=Oop r8=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@11 (line 34)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+                      ;   {section_word}
+  0x0000020729a7ae4c: 0048 ba4d | aea7 2907 
+
+  0x0000020729a7ae54: ;   {runtime_call handle_exception_nofpu Runtime1 stub}
+  0x0000020729a7ae54: 0200 00e8 | a45b a8fe | 9048 8bbc | 2490 0000 | 0049 8b87 | 0005 0000 | 4d33 d24d | 8997 0005 
+  0x0000020729a7ae74: 0000 4d33 | d24d 8997 | 0805 0000 | 4889 8424 | f000 0000 | 4885 ff0f | 8420 0000 
+
+  0x0000020729a7ae90: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7ae90: 0048 bb00 | a049 0001 | 0000 008b | 7708 48c1 | e603 483b | 5e50 0f85 | 1203 0000 | e900 0000 
+  0x0000020729a7aeb0: 004c 8bc7 
+
+  0x0000020729a7aeb4: ; implicit exception: dispatches to 0x0000020729a7b1c3
+  0x0000020729a7aeb4: 440f be87 | ca00 0000 | 4183 e001 | 4585 c00f | 8508 0000 | 0048 8bf7 | e95e 0000 | 0048 8b94 
+  0x0000020729a7aed4: 2488 0000 | 0041 b800 
+
+  0x0000020729a7aedc: ;   {optimized virtual_call}
+  0x0000020729a7aedc: 0000 00e8 
+
+  0x0000020729a7aee0: ; ImmutableOopMap {[144]=Oop [240]=Oop }
+                      ;*invokevirtual doGetSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@2 (line 2199)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@385 (line 163)
+  0x0000020729a7aee0: 9c3b 9dfe 
+
+  0x0000020729a7aee4: ;   {other}
+  0x0000020729a7aee4: 0f1f 8400 | 5414 0020 | 4885 c00f | 850f 0000 
+
+  0x0000020729a7aef4: ;   {oop(nullptr)}
+  0x0000020729a7aef4: 0048 be00 | 0000 0000 | 0000 00e9 | 2300 0000 | 488b d066 | 0f1f 4400 | 0048 b8ff | ffff ffff 
+  0x0000020729a7af14: ;   {virtual_call}
+  0x0000020729a7af14: ffff ffe8 
+
+  0x0000020729a7af18: ; ImmutableOopMap {[144]=Oop [240]=Oop }
+                      ;*invokeinterface getSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getSession@13 (line 2204)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@385 (line 163)
+  0x0000020729a7af18: 643e 9dfe 
+
+  0x0000020729a7af1c: ;   {other}
+  0x0000020729a7af1c: 0f1f 8400 | 8c14 0021 | 488b f048 | 8bb4 2490 | 0000 0048 | 85f6 0f84 | 2000 0000 
+
+  0x0000020729a7af38: ;   {metadata('org/apache/catalina/core/StandardContext')}
+  0x0000020729a7af38: 48bf 00a0 | 4900 0100 | 0000 8b56 | 0848 c1e2 | 0348 3b7a | 500f 8575 | 0200 00e9 | 0000 0000 
+  0x0000020729a7af58: 4c8b c641 | b800 0000 
+
+  0x0000020729a7af60: ;   {oop(a 'jdk/internal/loader/ClassLoaders$AppClassLoader'{0x00000000c25d9300})}
+  0x0000020729a7af60: 0049 b900 | 935d c200 | 0000 0048 
+
+  0x0000020729a7af6c: ;   {optimized virtual_call}
+  0x0000020729a7af6c: 8bd6 90e8 
+
+  0x0000020729a7af70: ; ImmutableOopMap {[240]=Oop }
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@396 (line 166)
+  0x0000020729a7af70: 0c3b 9dfe 
+
+  0x0000020729a7af74: ;   {other}
+  0x0000020729a7af74: 0f1f 8400 | e414 0022 | 488b 8424 | f000 0000 | e961 0200 
+
+  0x0000020729a7af88: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7af88: 00e8 7242 
+
+  0x0000020729a7af8c: ; ImmutableOopMap {rdx=Oop r8=Oop r9=Oop [136]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual getContext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@1 (line 83)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7af8c: a8fe e86d 
+
+  0x0000020729a7af90: ; ImmutableOopMap {rdx=Oop r8=Oop r9=Oop [136]=Oop [152]=Oop [160]=Oop }
+                      ;*getfield context {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.catalina.connector.Request::getContext@4 (line 557)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@1 (line 83)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7af90: 42a8 fee8 
+
+  0x0000020729a7af94: ; ImmutableOopMap {r9=Oop [152]=Oop }
+                      ;*invokevirtual isError {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@10 (line 86)
+  0x0000020729a7af94: 6842 a8fe 
+
+  0x0000020729a7af98: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7af98: e863 42a8 
+
+  0x0000020729a7af9c: ; ImmutableOopMap {r9=Oop [152]=Oop }
+                      ;*invokevirtual isError {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isError@4 (line 395)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@10 (line 86)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7af9c: fee8 5e42 
+
+  0x0000020729a7afa0: ; ImmutableOopMap {r9=Oop [152]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::isError@4 (line 331)
+                      ; - org.apache.catalina.connector.Response::isError@4 (line 395)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@10 (line 86)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7afa0: a8fe e859 
+
+  0x0000020729a7afa4: ; ImmutableOopMap {rdx=Oop r8=Oop rsi=Oop r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual booleanValue {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsyncSupported@13 (line 1595)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@25 (line 92)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7afa4: 42a8 fee8 
+
+  0x0000020729a7afa8: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getPipeline {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@33 (line 93)
+  0x0000020729a7afa8: 5469 a8fe 
+
+  0x0000020729a7afac: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7afac: e84f 42a8 
+
+  0x0000020729a7afb0: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getPipeline {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@33 (line 93)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7afb0: fee8 4a69 
+
+  0x0000020729a7afb4: ; ImmutableOopMap {rsi=Oop rdi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface isAsyncSupported {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@38 (line 93)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7afb4: a8fe e845 
+
+  0x0000020729a7afb8: ; ImmutableOopMap {rsi=Oop rdi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface isAsyncSupported {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@38 (line 93)
+  0x0000020729a7afb8: 42a8 fe41 | 8bb0 8400 | 0000 4883 | fe00 0f84 | 9df0 ffff | 4889 3424 
+
+  0x0000020729a7afd0: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000020729a7afd0: e82b 99a8 | fee9 8ff0 | ffff 4883 | fa00 0f84 | a3f0 ffff | 4c89 0424 
+
+  0x0000020729a7afe8: ;   {runtime_call g1_post_barrier_slow}
+  0x0000020729a7afe8: e813 9ca8 | fee9 95f0 | ffff 488b 
+
+  0x0000020729a7aff4: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a7aff4: d2e8 064b 
+
+  0x0000020729a7aff8: ; ImmutableOopMap {r8=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@9 (line 1584)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@47 (line 96)
+  0x0000020729a7aff8: a8fe e9e5 
+
+  0x0000020729a7affc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7affc: f0ff ffe8 
+
+  0x0000020729a7b000: ; ImmutableOopMap {r8=Oop rax=Oop rdx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@47 (line 96)
+  0x0000020729a7b000: fc41 a8fe 
+
+  0x0000020729a7b004: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b004: e8f7 68a8 
+
+  0x0000020729a7b008: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface bind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@59 (line 99)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b008: fee8 f241 
+
+  0x0000020729a7b00c: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface bind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@59 (line 99)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b00c: a8fe e8ed 
+
+  0x0000020729a7b010: ; ImmutableOopMap {rax=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface fireRequestInitEvent {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@75 (line 101)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b010: 68a8 fee8 
+
+  0x0000020729a7b014: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isErrorReportRequired {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@112 (line 114)
+  0x0000020729a7b014: e841 a8fe 
+
+  0x0000020729a7b018: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b018: e8e3 41a8 
+
+  0x0000020729a7b01c: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isErrorReportRequired {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@112 (line 114)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b01c: fee8 de41 
+
+  0x0000020729a7b020: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::isErrorReportRequired@4 (line 336)
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@112 (line 114)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b020: a8fe e8d9 
+
+  0x0000020729a7b024: ; ImmutableOopMap {r9=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getPipeline {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@119 (line 115)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b024: 68a8 fee8 
+
+  0x0000020729a7b028: ; ImmutableOopMap {r9=Oop rsi=Oop r8=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getFirst {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@124 (line 115)
+  0x0000020729a7b028: d468 a8fe 
+
+  0x0000020729a7b02c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b02c: e8cf 41a8 
+
+  0x0000020729a7b030: ; ImmutableOopMap {r9=Oop rsi=Oop r8=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getFirst {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@124 (line 115)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b030: fee8 ca68 
+
+  0x0000020729a7b034: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop }
+                      ;*invokeinterface getAlwaysAccessSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@84 (line 162)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b034: a8fe e8c5 
+
+  0x0000020729a7b038: ; ImmutableOopMap {rax=Oop rdx=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getLogger {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@150 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b038: 68a8 fee8 
+
+  0x0000020729a7b03c: ; ImmutableOopMap {rax=Oop rdx=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getLogger {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@150 (line 119)
+  0x0000020729a7b03c: c041 a8fe | 8b5e 3c48 | 83fb 000f | 84f4 f4ff | ff48 891c 
+
+  0x0000020729a7b050: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000020729a7b050: 24e8 aa98 | a8fe e9e6 | f4ff ff48 | 83f8 000f | 84f7 f4ff | ff48 8934 
+
+  0x0000020729a7b068: ;   {runtime_call g1_post_barrier_slow}
+  0x0000020729a7b068: 24e8 929b | a8fe e9e9 
+
+  0x0000020729a7b070: ;   {runtime_call new_object_array Runtime1 stub}
+  0x0000020729a7b070: f4ff ffe8 
+
+  0x0000020729a7b074: ; ImmutableOopMap {r8=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*anewarray {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@161 (line 119)
+  0x0000020729a7b074: 8853 a8fe | e97a f5ff 
+
+  0x0000020729a7b07c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b07c: ffe8 7e41 
+
+  0x0000020729a7b080: ; ImmutableOopMap {r8=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*invokevirtual requestURI {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getRequestURI@4 (line 2175)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@167 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b080: a8fe e879 
+
+  0x0000020729a7b084: ; ImmutableOopMap {r8=Oop rax=Oop rdx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*invokevirtual toStringType {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::getRequestURI@7 (line 2175)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@167 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b084: 41a8 fee8 
+
+  0x0000020729a7b088: ; ImmutableOopMap {rax=Oop r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.catalina.core.StandardHostValve::invoke@170 (line 119)
+  0x0000020729a7b088: 7441 a8fe | 4889 0424 
+
+  0x0000020729a7b090: ;   {runtime_call throw_array_store_exception Runtime1 stub}
+  0x0000020729a7b090: e86b 62a8 
+
+  0x0000020729a7b094: ; ImmutableOopMap {rax=Oop r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop [208]=Oop }
+                      ;*aastore {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.catalina.core.StandardHostValve::invoke@170 (line 119)
+  0x0000020729a7b094: fe41 8b10 | 4883 fa00 | 0f84 e6f5 | ffff 4889 
+
+  0x0000020729a7b0a4: ;   {runtime_call g1_pre_barrier_slow}
+  0x0000020729a7b0a4: 1424 e855 | 98a8 fee9 | d8f5 ffff | 4883 f800 | 0f84 e8f5 | ffff 4c89 
+
+  0x0000020729a7b0bc: ;   {runtime_call g1_post_barrier_slow}
+  0x0000020729a7b0bc: 0424 e83d | 9ba8 fee9 | daf5 ffff 
+
+  0x0000020729a7b0c8: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b0c8: e833 68a8 
+
+  0x0000020729a7b0cc: ; ImmutableOopMap {rax=Oop rdx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokeinterface error {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@176 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0cc: fee8 2e41 
+
+  0x0000020729a7b0d0: ; ImmutableOopMap {rax=Oop rdx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokeinterface error {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@176 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0d0: a8fe e829 
+
+  0x0000020729a7b0d4: ; ImmutableOopMap {rdx=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual toString {reexecute=0 rethrow=0 return_oop=0}
+                      ; - java.lang.String::valueOf@11 (line 4465)
+                      ; - org.apache.juli.logging.DirectJDKLog::error@5 (line 141)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@176 (line 119)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0d4: 41a8 fee8 
+
+  0x0000020729a7b0d8: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual isErrorReportRequired {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@182 (line 122)
+  0x0000020729a7b0d8: 2441 a8fe 
+
+  0x0000020729a7b0dc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0dc: e81f 41a8 
+
+  0x0000020729a7b0e0: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual isErrorReportRequired {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@182 (line 122)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0e0: fee8 1a41 
+
+  0x0000020729a7b0e4: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [192]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::isErrorReportRequired@4 (line 336)
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@182 (line 122)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0e4: a8fe e815 
+
+  0x0000020729a7b0e8: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual setSuspended {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::setSuspended@5 (line 352)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@206 (line 131)
+  0x0000020729a7b0e8: 41a8 fe48 
+
+  0x0000020729a7b0ec: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a7b0ec: 8904 24e8 
+
+  0x0000020729a7b0f0: ; ImmutableOopMap {[136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@215 (line 133)
+  0x0000020729a7b0f0: 0c65 a8fe 
+
+  0x0000020729a7b0f4: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b0f4: e807 68a8 
+
+  0x0000020729a7b0f8: ; ImmutableOopMap {rbx=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface getState {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@221 (line 137)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b0f8: fee8 0241 
+
+  0x0000020729a7b0fc: ; ImmutableOopMap {rbx=Oop rsi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isAvailable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@226 (line 137)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b0fc: a8fe e8fd 
+
+  0x0000020729a7b100: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop }
+                      ;*invokeinterface getAlwaysAccessSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@233 (line 162)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b100: 67a8 fee8 
+
+  0x0000020729a7b104: ; ImmutableOopMap {r9=Oop rbx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isErrorReportRequired {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@261 (line 142)
+  0x0000020729a7b104: f840 a8fe 
+
+  0x0000020729a7b108: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b108: e8f3 40a8 
+
+  0x0000020729a7b10c: ; ImmutableOopMap {r9=Oop rbx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::isErrorReportRequired@4 (line 336)
+                      ; - org.apache.catalina.connector.Response::isErrorReportRequired@4 (line 400)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@261 (line 142)
+  0x0000020729a7b10c: fe48 8bd2 
+
+  0x0000020729a7b110: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a7b110: e8eb 49a8 
+
+  0x0000020729a7b114: ; ImmutableOopMap {r9=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [224]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@267 (line 145)
+  0x0000020729a7b114: fee9 84f8 
+
+  0x0000020729a7b118: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b118: ffff e8e1 
+
+  0x0000020729a7b11c: ; ImmutableOopMap {r9=Oop rax=Oop rdx=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop [224]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@286 (line 146)
+  0x0000020729a7b11c: 40a8 fe48 
+
+  0x0000020729a7b120: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a7b120: 8bd2 e8d9 
+
+  0x0000020729a7b124: ; ImmutableOopMap {r8=Oop [136]=Oop [144]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@9 (line 1584)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@320 (line 156)
+  0x0000020729a7b124: 49a8 fee9 | 8df9 ffff 
+
+  0x0000020729a7b12c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b12c: e8cf 40a8 
+
+  0x0000020729a7b130: ; ImmutableOopMap {r8=Oop rax=Oop rdx=Oop [136]=Oop [144]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@320 (line 156)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b130: fee8 ca67 
+
+  0x0000020729a7b134: ; ImmutableOopMap {rax=Oop rsi=Oop [136]=Oop [144]=Oop }
+                      ;*invokeinterface fireRequestDestroyEvent {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@336 (line 157)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b134: a8fe e8c5 
+
+  0x0000020729a7b138: ; ImmutableOopMap {rsi=Oop [136]=Oop [144]=Oop }
+                      ;*invokeinterface getAlwaysAccessSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@343 (line 162)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b138: 67a8 fee8 
+
+  0x0000020729a7b13c: ; ImmutableOopMap {rsi=Oop [144]=Oop }
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@364 (line 166)
+  0x0000020729a7b13c: c067 a8fe 
+
+  0x0000020729a7b140: ;   {internal_word}
+  0x0000020729a7b140: 49ba 7cac | a729 0702 | 0000 4d89 | 9768 0400 
+
+  0x0000020729a7b150: ;   {runtime_call SafepointBlob}
+  0x0000020729a7b150: 00e9 2aa1 
+
+  0x0000020729a7b154: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b154: 9dfe e8a5 
+
+  0x0000020729a7b158: ; ImmutableOopMap {rsi=Oop [144]=Oop }
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@254 (line 166)
+                      ;   {internal_word}
+  0x0000020729a7b158: 67a8 fe49 | baec aca7 | 2907 0200 | 004d 8997 | 6804 0000 
+
+  0x0000020729a7b16c: ;   {runtime_call SafepointBlob}
+  0x0000020729a7b16c: e90f a19d 
+
+  0x0000020729a7b170: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b170: fee8 8a67 
+
+  0x0000020729a7b174: ; ImmutableOopMap {rsi=Oop [144]=Oop }
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@105 (line 166)
+                      ;   {internal_word}
+  0x0000020729a7b174: a8fe 49ba | 5cad a729 | 0702 0000 | 4d89 9768 
+
+  0x0000020729a7b184: ;   {runtime_call SafepointBlob}
+  0x0000020729a7b184: 0400 00e9 | f4a0 9dfe 
+
+  0x0000020729a7b18c: ;   {internal_word}
+  0x0000020729a7b18c: 49ba 9cad | a729 0702 | 0000 4d89 | 9768 0400 
+
+  0x0000020729a7b19c: ;   {runtime_call SafepointBlob}
+  0x0000020729a7b19c: 00e9 dea0 | 9dfe 4c89 
+
+  0x0000020729a7b1a4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a7b1a4: 0424 e855 
+
+  0x0000020729a7b1a8: ; ImmutableOopMap {r8=Oop rdi=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@28 (line 41)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b1a8: 64a8 fee8 
+
+  0x0000020729a7b1ac: ; ImmutableOopMap {r8=Oop rdi=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@31 (line 41)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+  0x0000020729a7b1ac: 5040 a8fe | 4c89 0424 
+
+  0x0000020729a7b1b4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a7b1b4: e847 64a8 
+
+  0x0000020729a7b1b8: ; ImmutableOopMap {rdi=Oop rbx=Oop r9=Oop r8=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@8 (line 34)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b1b8: fee8 4240 
+
+  0x0000020729a7b1bc: ; ImmutableOopMap {rdi=Oop rbx=Oop r9=Oop r8=Oop rax=Oop [136]=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@11 (line 34)
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@143 (line 118)
+                      ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b1bc: a8fe e83d 
+
+  0x0000020729a7b1c0: ; ImmutableOopMap {rdi=Oop rax=Oop [136]=Oop [144]=Oop [240]=Oop }
+                      ;*invokeinterface getAlwaysAccessSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@375 (line 162)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a7b1c0: 67a8 fee8 
+
+  0x0000020729a7b1c4: ; ImmutableOopMap {rdi=Oop rax=Oop [136]=Oop [144]=Oop [240]=Oop }
+                      ;*invokeinterface getAlwaysAccessSession {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@375 (line 162)
+  0x0000020729a7b1c4: 3840 a8fe 
+
+  0x0000020729a7b1c8: ;   {runtime_call throw_incompatible_class_change_error Runtime1 stub}
+  0x0000020729a7b1c8: e833 67a8 
+
+  0x0000020729a7b1cc: ; ImmutableOopMap {rsi=Oop [144]=Oop [240]=Oop }
+                      ;*invokeinterface unbind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.core.StandardHostValve::invoke@396 (line 166)
+  0x0000020729a7b1cc: fe49 8b87 | 0005 0000 | 49c7 8700 | 0500 0000 | 0000 0049 | c787 0805 | 0000 0000 | 0000 4881 
+  0x0000020729a7b1ec: c400 0100 
+
+  0x0000020729a7b1f0: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000020729a7b1f0: 005d e909 | 31a8 fef4 
+[Stub Code]
+  0x0000020729a7b1f8: ;   {no_reloc}
+  0x0000020729a7b1f8: 0f1f 4400 
+
+  0x0000020729a7b1fc: ;   {static_stub}
+  0x0000020729a7b1fc: 0048 bb00 | 0000 0000 
+
+  0x0000020729a7b204: ;   {runtime_call}
+  0x0000020729a7b204: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b20c: ;   {static_stub}
+  0x0000020729a7b20c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b214: ;   {runtime_call}
+  0x0000020729a7b214: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b21c: ;   {static_stub}
+  0x0000020729a7b21c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b224: ;   {runtime_call}
+  0x0000020729a7b224: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b22c: ;   {static_stub}
+  0x0000020729a7b22c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b234: ;   {runtime_call}
+  0x0000020729a7b234: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b23c: ;   {static_stub}
+  0x0000020729a7b23c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b244: ;   {runtime_call}
+  0x0000020729a7b244: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b24c: ;   {static_stub}
+  0x0000020729a7b24c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b254: ;   {runtime_call}
+  0x0000020729a7b254: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b25c: ;   {static_stub}
+  0x0000020729a7b25c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b264: ;   {runtime_call}
+  0x0000020729a7b264: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b26c: ;   {static_stub}
+  0x0000020729a7b26c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b274: ;   {runtime_call}
+  0x0000020729a7b274: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b27c: ;   {static_stub}
+  0x0000020729a7b27c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b284: ;   {runtime_call}
+  0x0000020729a7b284: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b28c: ;   {static_stub}
+  0x0000020729a7b28c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b294: ;   {runtime_call}
+  0x0000020729a7b294: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b29c: ;   {static_stub}
+  0x0000020729a7b29c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2a4: ;   {runtime_call}
+  0x0000020729a7b2a4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2ac: ;   {static_stub}
+  0x0000020729a7b2ac: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2b4: ;   {runtime_call}
+  0x0000020729a7b2b4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2bc: ;   {static_stub}
+  0x0000020729a7b2bc: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2c4: ;   {runtime_call}
+  0x0000020729a7b2c4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2cc: ;   {static_stub}
+  0x0000020729a7b2cc: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2d4: ;   {runtime_call}
+  0x0000020729a7b2d4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2dc: ;   {static_stub}
+  0x0000020729a7b2dc: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2e4: ;   {runtime_call}
+  0x0000020729a7b2e4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2ec: ;   {static_stub}
+  0x0000020729a7b2ec: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b2f4: ;   {runtime_call}
+  0x0000020729a7b2f4: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b2fc: ;   {static_stub}
+  0x0000020729a7b2fc: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b304: ;   {runtime_call}
+  0x0000020729a7b304: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b30c: ;   {static_stub}
+  0x0000020729a7b30c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b314: ;   {runtime_call}
+  0x0000020729a7b314: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b31c: ;   {static_stub}
+  0x0000020729a7b31c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b324: ;   {runtime_call}
+  0x0000020729a7b324: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b32c: ;   {static_stub}
+  0x0000020729a7b32c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b334: ;   {runtime_call}
+  0x0000020729a7b334: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b33c: ;   {static_stub}
+  0x0000020729a7b33c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b344: ;   {runtime_call}
+  0x0000020729a7b344: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b34c: ;   {static_stub}
+  0x0000020729a7b34c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b354: ;   {runtime_call}
+  0x0000020729a7b354: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b35c: ;   {static_stub}
+  0x0000020729a7b35c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b364: ;   {runtime_call}
+  0x0000020729a7b364: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b36c: ;   {static_stub}
+  0x0000020729a7b36c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b374: ;   {runtime_call}
+  0x0000020729a7b374: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b37c: ;   {static_stub}
+  0x0000020729a7b37c: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7b384: ;   {runtime_call}
+  0x0000020729a7b384: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b38c: ;   {static_stub}
+  0x0000020729a7b38c: 48bb 0000 | 0000 0000 
+
+  0x0000020729a7b394: ;   {runtime_call}
+  0x0000020729a7b394: 0000 e9fb 
+
+  0x0000020729a7b398: ;   {static_stub}
+  0x0000020729a7b398: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x0000020729a7b3a4: ;   {runtime_call}
+  0x0000020729a7b3a4: 00e9 fbff 
+
+  0x0000020729a7b3a8: ;   {static_stub}
+  0x0000020729a7b3a8: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x0000020729a7b3b4: ;   {runtime_call}
+  0x0000020729a7b3b4: e9fb ffff 
+
+  0x0000020729a7b3b8: ;   {static_stub}
+  0x0000020729a7b3b8: ff48 bb00 | 0000 0000 
+
+  0x0000020729a7b3c0: ;   {runtime_call}
+  0x0000020729a7b3c0: 0000 00e9 | fbff ffff 
+
+  0x0000020729a7b3c8: ;   {static_stub}
+  0x0000020729a7b3c8: 48bb 0000 | 0000 0000 
+
+  0x0000020729a7b3d0: ;   {runtime_call}
+  0x0000020729a7b3d0: 0000 e9fb 
+
+  0x0000020729a7b3d4: ;   {static_stub}
+  0x0000020729a7b3d4: ffff ff48 | bb20 e620 | 3207 0200 
+
+  0x0000020729a7b3e0: ;   {runtime_call I2C/C2I adapters}
+  0x0000020729a7b3e0: 00e9 806b 
+
+  0x0000020729a7b3e4: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000020729a7b3e4: 9cfe e815 
+
+  0x0000020729a7b3e8: ;   {external_word}
+  0x0000020729a7b3e8: 5ca8 fe48 | b970 e058 | 1ff9 7f00 | 0048 83e4 
+
+  0x0000020729a7b3f8: ;   {runtime_call}
+  0x0000020729a7b3f8: f048 b860 | f61b 1ff9 | 7f00 00ff 
+
+  0x0000020729a7b404: ;   {section_word}
+  0x0000020729a7b404: d0f4 49ba | 06b4 a729 | 0702 0000 
+
+  0x0000020729a7b410: ;   {runtime_call DeoptimizationBlob}
+  0x0000020729a7b410: 4152 e989 | 979d fef4 
+[/MachCode]
+
+
+Compiled method (c1) 6784198 14730   !   1       org.apache.catalina.valves.ErrorReportValve::invoke (153 bytes)
+ total in heap  [0x0000020729a78490,0x0000020729a796b8] = 4648
+ relocation     [0x0000020729a785f0,0x0000020729a78720] = 304
+ main code      [0x0000020729a78720,0x0000020729a79000] = 2272
+ stub code      [0x0000020729a79000,0x0000020729a790c8] = 200
+ oops           [0x0000020729a790c8,0x0000020729a790d8] = 16
+ metadata       [0x0000020729a790d8,0x0000020729a79178] = 160
+ scopes data    [0x0000020729a79178,0x0000020729a79358] = 480
+ scopes pcs     [0x0000020729a79358,0x0000020729a795c8] = 624
+ dependencies   [0x0000020729a795c8,0x0000020729a795d8] = 16
+ handler table  [0x0000020729a795d8,0x0000020729a79620] = 72
+ nul chk table  [0x0000020729a79620,0x0000020729a796b8] = 152
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000020732281370} 'invoke' '(Lorg/apache/catalina/connector/Request;Lorg/apache/catalina/connector/Response;)V' in 'org/apache/catalina/valves/ErrorReportValve'
+  # this:     rdx:rdx   = 'org/apache/catalina/valves/ErrorReportValve'
+  # parm0:    r8:r8     = 'org/apache/catalina/connector/Request'
+  # parm1:    r9:r9     = 'org/apache/catalina/connector/Response'
+  #           [sp+0xf0]  (sp of caller)
+  0x0000020729a78720: 448b 5208 | 49c1 e203 
+
+  0x0000020729a78728: ;   {runtime_call ic_miss_stub}
+  0x0000020729a78728: 4c3b d00f | 854f 609d | fe66 6666 | 0f1f 8400 | 0000 0000 | 6666 6690 
+[Verified Entry Point]
+  0x0000020729a78740: 8984 2400 | 80ff ff55 | 4881 ece0 | 0000 0090 | 4181 7f20 | 2000 0000 
+
+  0x0000020729a78758: ;   {runtime_call StubRoutines (final stubs)}
+  0x0000020729a78758: 7405 e841 | c69b fe4c | 8984 2498 | 0000 004c | 898c 2490 | 0000 008b | 7228 498b | f84c 8bc7 
+  0x0000020729a78778: 498b d94c | 8bcb 4889 | 9424 a000 | 0000 488b | d60f 1f40 | 0048 b8d8 | ba4d 0001 
+
+  0x0000020729a78794: ;   {virtual_call}
+  0x0000020729a78794: 0000 00e8 
+
+  0x0000020729a78798: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokeinterface invoke {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@6 (line 93)
+  0x0000020729a78798: 6417 0000 
+
+  0x0000020729a7879c: ;   {other}
+  0x0000020729a7879c: 0f1f 8400 | 0c03 0000 | 4c8b 8c24 | 9000 0000 
+
+  0x0000020729a787ac: ; implicit exception: dispatches to 0x0000020729a78ec9
+  0x0000020729a787ac: 418b 4114 
+
+  0x0000020729a787b0: ; implicit exception: dispatches to 0x0000020729a78ece
+  0x0000020729a787b0: 0fbe 4028 | 83e0 0183 | e001 85c0 | 0f84 0f01 | 0000 418b | 4114 8b40 | 5c48 3b00 | 488d 500c 
+  0x0000020729a787d0: b801 0000 | 00be 0200 | 0000 f00f | b132 ba01 | 0000 0074 | 05ba 0000 | 0000 83e2 | 0183 e201 
+  0x0000020729a787f0: 83e2 0185 | d20f 8481 
+
+  0x0000020729a787f8: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a787f8: 0400 0048 | ba88 3011 | 0001 0000 | 0049 8b87 | b801 0000 | 488d 7810 | 493b bfc8 | 0100 000f 
+  0x0000020729a78818: 87c0 0600 | 0049 89bf | b801 0000 | 48c7 0001 | 0000 0048 | 8bca 48c1 | e903 8948 | 0848 33c9 
+  0x0000020729a78838: 8948 0c48 | 33c9 41b8 | 0100 0000 | 4489 400c | f083 4424 | c000 418b | 5114 483b 
+
+  0x0000020729a78854: ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cbb38})}
+  0x0000020729a78854: 0249 b838 | bb2c c400 | 0000 004c | 8bc8 4889 | 8424 a800 | 0000 0f1f 
+
+  0x0000020729a7886c: ;   {optimized virtual_call}
+  0x0000020729a7886c: 4400 00e8 
+
+  0x0000020729a78870: ; ImmutableOopMap {[144]=Oop [152]=Oop [168]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@42 (line 102)
+  0x0000020729a78870: 0c62 9dfe 
+
+  0x0000020729a78874: ;   {other}
+  0x0000020729a78874: 0f1f 8400 | e403 0001 | 488b 8424 | a800 0000 | 448b 400c | 4585 c041 | b800 0000 | 0074 0641 
+  0x0000020729a78894: b801 0000 | 0041 83e0 | 0145 85c0 | 0f84 d603 | 0000 4c8b | 8c24 9000 | 0000 418b | 5118 483b 
+  0x0000020729a788b4: 0241 b801 | 0000 000f 
+
+  0x0000020729a788bc: ;   {optimized virtual_call}
+  0x0000020729a788bc: 1f40 00e8 
+
+  0x0000020729a788c0: ; ImmutableOopMap {[144]=Oop [152]=Oop }
+                      ;*invokevirtual doFlush {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.OutputBuffer::flush@2 (line 265)
+                      ; - org.apache.catalina.connector.Response::flushBuffer@4 (line 467)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@53 (line 108)
+  0x0000020729a788c0: bc61 9dfe 
+
+  0x0000020729a788c4: ;   {other}
+  0x0000020729a788c4: 0f1f 8400 | 3404 0002 | e944 0300 | 004c 8b84 | 2498 0000 | 0049 3b00 
+
+  0x0000020729a788dc: ;   {oop("jakarta.servlet.error.exception"{0x00000000c352ba68})}
+  0x0000020729a788dc: 498b f049 | b868 ba52 | c300 0000 | 0048 8bd6 
+
+  0x0000020729a788ec: ;   {optimized virtual_call}
+  0x0000020729a788ec: 6666 90e8 
+
+  0x0000020729a788f0: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual getAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@86 (line 121)
+  0x0000020729a788f0: ac81 9aff 
+
+  0x0000020729a788f4: ;   {other}
+  0x0000020729a788f4: 0f1f 8400 | 6404 0003 | 4885 c00f | 8420 0000 
+
+  0x0000020729a78904: ;   {metadata('java/lang/Throwable')}
+  0x0000020729a78904: 0048 bf98 | 3304 0001 | 0000 008b | 7008 48c1 | e603 483b | 7e38 0f85 | d905 0000 | e900 0000 
+  0x0000020729a78924: 0048 8bd8 | 4889 9c24 | b800 0000 | 4c8b 8424 | 9800 0000 | 418b 9080 | 0000 0048 | 85d2 0f85 
+  0x0000020729a78944: 0a00 0000 | be00 0000 | 00e9 9400 
+
+  0x0000020729a78950: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a78950: 0000 48ba | 8830 1100 | 0100 0000 | 498b 87b8 | 0100 0048 | 8d78 1049 | 3bbf c801 | 0000 0f87 
+  0x0000020729a78970: 8e05 0000 | 4989 bfb8 | 0100 0048 | c700 0100 | 0000 488b | ca48 c1e9 | 0389 4808 | 4833 c989 
+  0x0000020729a78990: 480c 4833 | c941 8b50 | 2048 3b02 
+
+  0x0000020729a7899c: ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cb450})}
+  0x0000020729a7899c: 49b8 50b4 | 2cc4 0000 | 0000 4c8b | c848 8984 | 24b0 0000 | 0066 0f1f 
+
+  0x0000020729a789b4: ;   {optimized virtual_call}
+  0x0000020729a789b4: 4400 00e8 
+
+  0x0000020729a789b8: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop [176]=Oop [184]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@94 (line 125)
+  0x0000020729a789b8: c460 9dfe 
+
+  0x0000020729a789bc: ;   {other}
+  0x0000020729a789bc: 0f1f 8400 | 2c05 0004 | 488b 8424 | b000 0000 | 8b50 0c85 | d2ba 0000 | 0000 7405 | ba01 0000 
+  0x0000020729a789dc: 0083 e201 | 83e2 0148 | 8bf2 85f6 | 0f84 b800 | 0000 4c8b | 8424 9800 | 0000 418b | 9080 0000 
+  0x0000020729a789fc: 0048 85d2 | 0f85 0a00 | 0000 be00 | 0000 00e9 | 8e00 0000 
+
+  0x0000020729a78a10: ;   {metadata('java/util/concurrent/atomic/AtomicBoolean')}
+  0x0000020729a78a10: 48ba 8830 | 1100 0100 | 0000 498b | 87b8 0100 | 0048 8d78 | 1049 3bbf | c801 0000 | 0f87 e204 
+  0x0000020729a78a30: 0000 4989 | bfb8 0100 | 0048 c700 | 0100 0000 | 488b ca48 | c1e9 0389 | 4808 4833 | c989 480c 
+  0x0000020729a78a50: 4833 c941 | 8b50 2048 
+
+  0x0000020729a78a58: ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cb3a8})}
+  0x0000020729a78a58: 3b02 49b8 | a8b3 2cc4 | 0000 0000 | 4c8b c848 | 8984 24c0 
+
+  0x0000020729a78a6c: ;   {optimized virtual_call}
+  0x0000020729a78a6c: 0000 00e8 
+
+  0x0000020729a78a70: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop [184]=Oop [192]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsyncCompleting@26 (line 1575)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@101 (line 125)
+  0x0000020729a78a70: 0c60 9dfe 
+
+  0x0000020729a78a74: ;   {other}
+  0x0000020729a78a74: 0f1f 8400 | e405 0005 | 488b 8424 | c000 0000 | 8b50 0c85 | d2ba 0000 | 0000 7405 | ba01 0000 
+  0x0000020729a78a94: 0083 e201 | 83e2 0148 | 8bf2 85f6 | 0f84 2b03 | 0000 488b | 9c24 b800 | 0000 4885 | db4c 8b8c 
+  0x0000020729a78ab4: 2490 0000 | 000f 84d3 | 0100 0041 | 8b51 148b | 525c 8b52 | 0c85 d2ba | 0000 0000 | 7e05 ba01 
+  0x0000020729a78ad4: 0000 0083 | e201 83e2 | 0185 d20f | 85ad 0100 | 0049 8bd1 | 0f1f 8000 
+
+  0x0000020729a78aec: ;   {optimized virtual_call}
+  0x0000020729a78aec: 0000 00e8 
+
+  0x0000020729a78af0: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual reset {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@120 (line 135)
+  0x0000020729a78af0: 8c5f 9dfe 
+
+  0x0000020729a78af4: ;   {other}
+  0x0000020729a78af4: 0f1f 8400 | 6406 0006 | 41b8 f401 
+
+  0x0000020729a78b00: ;   {oop(nullptr)}
+  0x0000020729a78b00: 0000 49b9 | 0000 0000 | 0000 0000 | 488b 9424 | 9000 0000 
+
+  0x0000020729a78b14: ;   {optimized virtual_call}
+  0x0000020729a78b14: 6666 90e8 
+
+  0x0000020729a78b18: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual sendError {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::sendError@3 (line 1066)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@127 (line 136)
+  0x0000020729a78b18: 645f 9dfe 
+
+  0x0000020729a78b1c: ;   {other}
+  0x0000020729a78b1c: 0f1f 8400 | 8c06 0007 | 488b 9c24 | b800 0000 | 4c8b 8c24 | 9000 0000 | e959 0100 | 0049 8b87 
+  0x0000020729a78b3c: 0005 0000 | 4d33 d24d | 8997 0005 | 0000 4d33 | d24d 8997 | 0805 0000 | 4885 c00f | 841f 0000 
+  0x0000020729a78b5c: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a78b5c: 0048 bf90 | d72f 0001 | 0000 008b | 5008 48c1 | e203 483b | fa0f 8505 | 0000 00e9 | 0500 0000 
+  0x0000020729a78b7c: 4d33 c0eb | 0a49 b801 | 0000 0000 | 0000 0045 | 85c0 0f85 | f502 0000 | 4885 c00f | 841f 0000 
+  0x0000020729a78b9c: ;   {metadata('java/lang/StackOverflowError')}
+  0x0000020729a78b9c: 0048 bf20 | 6004 0001 | 0000 008b | 5008 48c1 | e203 483b | fa0f 8505 | 0000 00e9 | 0500 0000 
+  0x0000020729a78bbc: 4d33 c0eb | 0a49 b801 | 0000 0000 | 0000 0045 | 85c0 0f85 | 4100 0000 | 4885 c00f | 8420 0000 
+  0x0000020729a78bdc: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a78bdc: 0048 bf18 | 5904 0001 | 0000 008b | 7008 48c1 | e603 483b | 7e48 0f85 | 0500 0000 | e905 0000 
+  0x0000020729a78bfc: 004d 33c0 | eb0a 49b8 | 0100 0000 | 0000 0000 | 4585 c00f | 8533 0200 | 004c 8b8c | 2490 0000 
+  0x0000020729a78c1c: 0048 8bb4 | 2498 0000 | 0041 8b79 | 1448 3b06 
+
+  0x0000020729a78c2c: ;   {oop("jakarta.servlet.error.exception"{0x00000000c352ba68})}
+  0x0000020729a78c2c: 49b8 68ba | 52c3 0000 | 0000 488b | d648 89bc | 24c8 0000 | 0066 0f1f 
+
+  0x0000020729a78c44: ;   {optimized virtual_call}
+  0x0000020729a78c44: 4400 00e8 
+
+  0x0000020729a78c48: ; ImmutableOopMap {[200]=Oop }
+                      ;*invokevirtual getAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@76 (line 115)
+  0x0000020729a78c48: 345e 9dfe 
+
+  0x0000020729a78c4c: ;   {other}
+  0x0000020729a78c4c: 0f1f 8400 | bc07 0008 | 488b bc24 | c800 0000 
+
+  0x0000020729a78c5c: ; implicit exception: dispatches to 0x0000020729a78f35
+                      ;   {oop(a 'org/apache/coyote/ActionCode'{0x00000000c42cbc20})}
+  0x0000020729a78c5c: 483b 0749 | b820 bc2c | c400 0000 | 004c 8bc8 
+
+  0x0000020729a78c6c: ;   {optimized virtual_call}
+  0x0000020729a78c6c: 488b d7e8 
+
+  0x0000020729a78c70: ; ImmutableOopMap {}
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@79 (line 114)
+  0x0000020729a78c70: 0c5e 9dfe 
+
+  0x0000020729a78c74: ;   {other}
+  0x0000020729a78c74: 0f1f 8400 | e407 0009 | 4881 c4e0 | 0000 005d 
+
+  0x0000020729a78c84: ;   {poll_return}
+  0x0000020729a78c84: 493b a750 | 0400 000f | 87a9 0200 | 00c3 488b | b424 9800 | 0000 488b | 9424 a000 | 0000 458b 
+  0x0000020729a78ca4: 4118 bf00 | 0000 0041 | 8878 2bf0 | 8344 24c0 | 004c 8bc6 | 488b fb0f 
+
+  0x0000020729a78cbc: ;   {optimized virtual_call}
+  0x0000020729a78cbc: 1f40 00e8 
+
+  0x0000020729a78cc0: ; ImmutableOopMap {}
+                      ;*invokevirtual report {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@139 (line 145)
+  0x0000020729a78cc0: a103 0000 
+
+  0x0000020729a78cc4: ;   {other}
+  0x0000020729a78cc4: 0f1f 8400 | 3408 000a | 4881 c4e0 | 0000 005d 
+
+  0x0000020729a78cd4: ;   {poll_return}
+  0x0000020729a78cd4: 493b a750 | 0400 000f | 8774 0200 | 00c3 498b | 8700 0500 | 004d 33d2 | 4d89 9700 | 0500 004d 
+  0x0000020729a78cf4: 33d2 4d89 | 9708 0500 | 0048 85c0 | 0f84 1f00 
+
+  0x0000020729a78d04: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a78d04: 0000 48ba | 90d7 2f00 | 0100 0000 | 8b78 0848 | c1e7 0348 | 3bd7 0f85 | 0500 0000 | e905 0000 
+  0x0000020729a78d24: 0048 33f6 | eb0a 48be | 0100 0000 | 0000 0000 | 85f6 0f85 | dc00 0000 | 4885 c00f | 841f 0000 
+  0x0000020729a78d44: ;   {metadata('java/lang/StackOverflowError')}
+  0x0000020729a78d44: 0048 ba20 | 6004 0001 | 0000 008b | 7808 48c1 | e703 483b | d70f 8505 | 0000 00e9 | 0500 0000 
+  0x0000020729a78d64: 4833 f6eb | 0a48 be01 | 0000 0000 | 0000 0085 | f60f 8540 | 0000 0048 | 85c0 0f84 | 2000 0000 
+  0x0000020729a78d84: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a78d84: 48ba 1859 | 0400 0100 | 0000 8b58 | 0848 c1e3 | 0348 3b53 | 480f 8505 | 0000 00e9 | 0500 0000 
+  0x0000020729a78da4: 4833 f6eb | 0a48 be01 | 0000 0000 | 0000 0085 | f60f 852c | 0000 0048 | 81c4 e000 
+
+  0x0000020729a78dc0: ;   {poll_return}
+  0x0000020729a78dc0: 0000 5d49 | 3ba7 5004 | 0000 0f87 | 9b01 0000 | c348 81c4 | e000 0000 
+
+  0x0000020729a78dd8: ;   {poll_return}
+  0x0000020729a78dd8: 5d49 3ba7 | 5004 0000 | 0f87 9b01 | 0000 c348 | 85c0 0f84 | 2000 0000 
+
+  0x0000020729a78df0: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a78df0: 48bb 1859 | 0400 0100 | 0000 8b78 | 0848 c1e7 | 0348 3b5f | 480f 858c | 0100 00e9 | 0000 0000 
+  0x0000020729a78e10: ; implicit exception: dispatches to 0x0000020729a78fa0
+  0x0000020729a78e10: 483b 00e9 | d401 0000 | 4885 c00f | 841f 0000 
+
+  0x0000020729a78e20: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a78e20: 0048 bb90 | d72f 0001 | 0000 008b | 7008 48c1 | e603 483b | de0f 856a | 0100 00e9 | 0000 0000 
+  0x0000020729a78e40: ; implicit exception: dispatches to 0x0000020729a78fae
+  0x0000020729a78e40: 483b 00e9 | a401 0000 | 4c8b 8c24 | 9000 0000 | 488b b424 | 9800 0000 | 4885 c00f | 8420 0000 
+  0x0000020729a78e60: ;   {metadata('java/lang/VirtualMachineError')}
+  0x0000020729a78e60: 0048 ba18 | 5904 0001 | 0000 008b | 5808 48c1 | e303 483b | 5348 0f85 | 3701 0000 | e900 0000 
+  0x0000020729a78e80: 0048 3b00 | e963 0100 | 004c 8b8c | 2490 0000 | 0048 8bb4 | 2498 0000 | 0048 85c0 | 0f84 1f00 
+  0x0000020729a78ea0: ;   {metadata('java/lang/ThreadDeath')}
+  0x0000020729a78ea0: 0000 48ba | 90d7 2f00 | 0100 0000 | 8b78 0848 | c1e7 0348 | 3bd7 0f85 | 0501 0000 | e900 0000 
+  0x0000020729a78ec0: 0048 3b00 | e923 0100 
+
+  0x0000020729a78ec8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ec8: 00e8 3263 
+
+  0x0000020729a78ecc: ; ImmutableOopMap {r9=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isCommitted {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@12 (line 95)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ecc: a8fe e82d 
+
+  0x0000020729a78ed0: ; ImmutableOopMap {r9=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual isCommitted {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isCommitted@4 (line 550)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@12 (line 95)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ed0: 63a8 fee8 
+
+  0x0000020729a78ed4: ; ImmutableOopMap {r9=Oop [144]=Oop [152]=Oop }
+                      ;*invokevirtual setErrorReported {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::setErrorReported@4 (line 405)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@19 (line 96)
+  0x0000020729a78ed4: 2863 a8fe 
+
+  0x0000020729a78ed8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ed8: e823 63a8 
+
+  0x0000020729a78edc: ; ImmutableOopMap {r9=Oop rax=Oop [144]=Oop [152]=Oop }
+                      ;*invokevirtual compareAndSet {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::setErrorReported@6 (line 341)
+                      ; - org.apache.catalina.connector.Response::setErrorReported@4 (line 405)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@19 (line 96)
+  0x0000020729a78edc: fe48 8bd2 
+
+  0x0000020729a78ee0: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a78ee0: e81b 6ca8 
+
+  0x0000020729a78ee4: ; ImmutableOopMap {r9=Oop [144]=Oop [152]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@25 (line 101)
+  0x0000020729a78ee4: fee9 54f9 
+
+  0x0000020729a78ee8: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ee8: ffff e811 
+
+  0x0000020729a78eec: ; ImmutableOopMap {r9=Oop rax=Oop rdx=Oop [144]=Oop [152]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@42 (line 102)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78eec: 63a8 fee8 
+
+  0x0000020729a78ef0: ; ImmutableOopMap {r9=Oop rdx=Oop [144]=Oop [152]=Oop }
+                      ;*invokevirtual flush {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::flushBuffer@4 (line 467)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@53 (line 108)
+  0x0000020729a78ef0: 0c63 a8fe 
+
+  0x0000020729a78ef4: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78ef4: e807 63a8 
+
+  0x0000020729a78ef8: ; ImmutableOopMap {r8=Oop [144]=Oop [152]=Oop [160]=Oop }
+                      ;*invokevirtual getAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@86 (line 121)
+  0x0000020729a78ef8: fe48 8904 
+
+  0x0000020729a78efc: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a78efc: 24e8 fe86 
+
+  0x0000020729a78f00: ; ImmutableOopMap {[144]=Oop [152]=Oop [160]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@89 (line 121)
+  0x0000020729a78f00: a8fe 488b 
+
+  0x0000020729a78f04: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a78f04: d2e8 f66b 
+
+  0x0000020729a78f08: ; ImmutableOopMap {r8=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@9 (line 1584)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@94 (line 125)
+  0x0000020729a78f08: a8fe e986 
+
+  0x0000020729a78f0c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f0c: faff ffe8 
+
+  0x0000020729a78f10: ; ImmutableOopMap {r8=Oop rax=Oop rdx=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsync@26 (line 1585)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@94 (line 125)
+  0x0000020729a78f10: ec62 a8fe 
+
+  0x0000020729a78f14: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x0000020729a78f14: 488b d2e8 
+
+  0x0000020729a78f18: ; ImmutableOopMap {r8=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsyncCompleting@9 (line 1574)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@101 (line 125)
+  0x0000020729a78f18: e46b a8fe | e932 fbff 
+
+  0x0000020729a78f20: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f20: ffe8 da62 
+
+  0x0000020729a78f24: ; ImmutableOopMap {r8=Oop rax=Oop rdx=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Request::isAsyncCompleting@26 (line 1575)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@101 (line 125)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f24: a8fe e8d5 
+
+  0x0000020729a78f28: ; ImmutableOopMap {rbx=Oop r9=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual isError {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::isError@4 (line 395)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@113 (line 129)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f28: 62a8 fee8 
+
+  0x0000020729a78f2c: ; ImmutableOopMap {rbx=Oop r9=Oop [144]=Oop [152]=Oop [160]=Oop [184]=Oop }
+                      ;*invokevirtual get {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.coyote.Response::isError@4 (line 331)
+                      ; - org.apache.catalina.connector.Response::isError@4 (line 395)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@113 (line 129)
+  0x0000020729a78f2c: d062 a8fe 
+
+  0x0000020729a78f30: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f30: e8cb 62a8 
+
+  0x0000020729a78f34: ; ImmutableOopMap {rsi=Oop rdi=Oop [152]=Oop }
+                      ;*invokevirtual getAttribute {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@76 (line 115)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f34: fee8 c662 
+
+  0x0000020729a78f38: ; ImmutableOopMap {rax=Oop rdi=Oop }
+                      ;*invokevirtual action {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@79 (line 114)
+                      ;   {internal_word}
+  0x0000020729a78f38: a8fe 49ba | 848c a729 | 0702 0000 | 4d89 9768 
+
+  0x0000020729a78f48: ;   {runtime_call SafepointBlob}
+  0x0000020729a78f48: 0400 00e9 | 30c3 9dfe 
+
+  0x0000020729a78f50: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78f50: e8ab 62a8 
+
+  0x0000020729a78f54: ; ImmutableOopMap {rbx=Oop rdx=Oop r9=Oop rsi=Oop [144]=Oop [152]=Oop [184]=Oop }
+                      ;*invokevirtual setSuspended {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.catalina.connector.Response::setSuspended@5 (line 352)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@132 (line 142)
+                      ;   {internal_word}
+  0x0000020729a78f54: fe49 bad4 | 8ca7 2907 | 0200 004d | 8997 6804 
+
+  0x0000020729a78f64: ;   {runtime_call SafepointBlob}
+  0x0000020729a78f64: 0000 e915 
+
+  0x0000020729a78f68: ;   {internal_word}
+  0x0000020729a78f68: c39d fe49 | bac3 8da7 | 2907 0200 | 004d 8997 | 6804 0000 
+
+  0x0000020729a78f7c: ;   {runtime_call SafepointBlob}
+  0x0000020729a78f7c: e9ff c29d 
+
+  0x0000020729a78f80: ;   {internal_word}
+  0x0000020729a78f80: fe49 bad9 | 8da7 2907 | 0200 004d | 8997 6804 
+
+  0x0000020729a78f90: ;   {runtime_call SafepointBlob}
+  0x0000020729a78f90: 0000 e9e9 | c29d fe48 
+
+  0x0000020729a78f98: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a78f98: 8904 24e8 
+
+  0x0000020729a78f9c: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@28 (line 41)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@149 (line 147)
+  0x0000020729a78f9c: 6086 a8fe 
+
+  0x0000020729a78fa0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78fa0: e85b 62a8 
+
+  0x0000020729a78fa4: ; ImmutableOopMap {rax=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@31 (line 41)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@149 (line 147)
+  0x0000020729a78fa4: fe48 8904 
+
+  0x0000020729a78fa8: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a78fa8: 24e8 5286 
+
+  0x0000020729a78fac: ; ImmutableOopMap {}
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@8 (line 34)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@149 (line 147)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78fac: a8fe e84d 
+
+  0x0000020729a78fb0: ; ImmutableOopMap {rax=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@11 (line 34)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@149 (line 147)
+  0x0000020729a78fb0: 62a8 fe48 
+
+  0x0000020729a78fb4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a78fb4: 8904 24e8 
+
+  0x0000020729a78fb8: ; ImmutableOopMap {r9=Oop rsi=Oop [144]=Oop [152]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@28 (line 41)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@63 (line 110)
+  0x0000020729a78fb8: 4486 a8fe 
+
+  0x0000020729a78fbc: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78fbc: e83f 62a8 
+
+  0x0000020729a78fc0: ; ImmutableOopMap {r9=Oop rsi=Oop rax=Oop [144]=Oop [152]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@31 (line 41)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@63 (line 110)
+  0x0000020729a78fc0: fe48 8904 
+
+  0x0000020729a78fc4: ;   {runtime_call throw_class_cast_exception Runtime1 stub}
+  0x0000020729a78fc4: 24e8 3686 
+
+  0x0000020729a78fc8: ; ImmutableOopMap {rsi=Oop r9=Oop [144]=Oop [152]=Oop }
+                      ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.apache.tomcat.util.ExceptionUtils::handleThrowable@8 (line 34)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@63 (line 110)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x0000020729a78fc8: a8fe e831 
+
+  0x0000020729a78fcc: ; ImmutableOopMap {rsi=Oop r9=Oop rax=Oop [144]=Oop [152]=Oop }
+                      ;*athrow {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.apache.tomcat.util.ExceptionUtils::handleThrowable@11 (line 34)
+                      ; - org.apache.catalina.valves.ErrorReportValve::invoke@63 (line 110)
+  0x0000020729a78fcc: 62a8 fe49 | 8b87 0005 | 0000 49c7 | 8700 0500 | 0000 0000 | 0049 c787 | 0805 0000 | 0000 0000 
+  0x0000020729a78fec: 4881 c4e0 | 0000 005d 
+
+  0x0000020729a78ff4: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x0000020729a78ff4: e907 53a8 | fef4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000020729a79000: ;   {no_reloc}
+  0x0000020729a79000: 0f1f 4400 
+
+  0x0000020729a79004: ;   {static_stub}
+  0x0000020729a79004: 0048 bb00 | 0000 0000 
+
+  0x0000020729a7900c: ;   {runtime_call}
+  0x0000020729a7900c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79014: ;   {static_stub}
+  0x0000020729a79014: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7901c: ;   {runtime_call}
+  0x0000020729a7901c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79024: ;   {static_stub}
+  0x0000020729a79024: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7902c: ;   {runtime_call}
+  0x0000020729a7902c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79034: ;   {static_stub}
+  0x0000020729a79034: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7903c: ;   {runtime_call}
+  0x0000020729a7903c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79044: ;   {static_stub}
+  0x0000020729a79044: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7904c: ;   {runtime_call}
+  0x0000020729a7904c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79054: ;   {static_stub}
+  0x0000020729a79054: 9048 bb00 | 0000 0000 
+
+  0x0000020729a7905c: ;   {runtime_call}
+  0x0000020729a7905c: 0000 00e9 | fbff ffff 
+
+  0x0000020729a79064: ;   {static_stub}
+  0x0000020729a79064: 9048 bb88 | 1a28 3207 
+
+  0x0000020729a7906c: ;   {runtime_call I2C/C2I adapters}
+  0x0000020729a7906c: 0200 00e9 | f28e 9cfe 
+
+  0x0000020729a79074: ;   {static_stub}
+  0x0000020729a79074: 48bb 0000 | 0000 0000 
+
+  0x0000020729a7907c: ;   {runtime_call}
+  0x0000020729a7907c: 0000 e9fb 
+
+  0x0000020729a79080: ;   {static_stub}
+  0x0000020729a79080: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x0000020729a7908c: ;   {runtime_call}
+  0x0000020729a7908c: 00e9 fbff 
+
+  0x0000020729a79090: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x0000020729a79090: ffff e869 
+
+  0x0000020729a79094: ;   {external_word}
+  0x0000020729a79094: 7fa8 fe48 | b970 e058 | 1ff9 7f00 | 0048 83e4 
+
+  0x0000020729a790a4: ;   {runtime_call}
+  0x0000020729a790a4: f048 b860 | f61b 1ff9 | 7f00 00ff 
+
+  0x0000020729a790b0: ;   {section_word}
+  0x0000020729a790b0: d0f4 49ba | b290 a729 | 0702 0000 
+
+  0x0000020729a790bc: ;   {runtime_call DeoptimizationBlob}
+  0x0000020729a790bc: 4152 e9dd | ba9d fef4 | f4f4 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00000207371d12c0, length=33, elements={
+0x000002072f26e750, 0x000002072f231f50, 0x000002072f3895c0, 0x000002072f381ff0,
+0x000002072f3831f0, 0x000002072f383c50, 0x000002072f3846b0, 0x00000207231c0f10,
+0x000002072f598e20, 0x000002072fc02fa0, 0x000002072fc0a840, 0x000002072fc3ae00,
+0x000002072fc42310, 0x0000020734798450, 0x0000020736b51900, 0x0000020736be5630,
+0x0000020736b52cb0, 0x0000020736b51270, 0x0000020736b4f830, 0x0000020736b4fec0,
+0x0000020736be4910, 0x0000020736be6350, 0x0000020736be69e0, 0x0000020736be7070,
+0x0000020736be0e00, 0x0000020736be3bf0, 0x0000020736be1b20, 0x0000020736be00e0,
+0x0000020736be21b0, 0x0000020736be4fa0, 0x0000020736be2ed0, 0x0000020736be7700,
+0x0000020736be1490
+}
+
+Java Threads: ( => current thread )
+  0x000002072f26e750 JavaThread "Reference Handler"          daemon [_thread_blocked, id=13444, stack(0x0000004b5c900000,0x0000004b5ca00000) (1024K)]
+  0x000002072f231f50 JavaThread "Finalizer"                  daemon [_thread_blocked, id=4480, stack(0x0000004b5ca00000,0x0000004b5cb00000) (1024K)]
+  0x000002072f3895c0 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=10992, stack(0x0000004b5cb00000,0x0000004b5cc00000) (1024K)]
+  0x000002072f381ff0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=13744, stack(0x0000004b5cc00000,0x0000004b5cd00000) (1024K)]
+  0x000002072f3831f0 JavaThread "Service Thread"             daemon [_thread_blocked, id=7476, stack(0x0000004b5cd00000,0x0000004b5ce00000) (1024K)]
+  0x000002072f383c50 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=4856, stack(0x0000004b5ce00000,0x0000004b5cf00000) (1024K)]
+  0x000002072f3846b0 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=6184, stack(0x0000004b5cf00000,0x0000004b5d000000) (1024K)]
+  0x00000207231c0f10 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=3744, stack(0x0000004b5d000000,0x0000004b5d100000) (1024K)]
+  0x000002072f598e20 JavaThread "Notification Thread"        daemon [_thread_blocked, id=12580, stack(0x0000004b5d200000,0x0000004b5d300000) (1024K)]
+  0x000002072fc02fa0 JavaThread "RMI TCP Accept-0"           daemon [_thread_in_native, id=9740, stack(0x0000004b5d700000,0x0000004b5d800000) (1024K)]
+  0x000002072fc0a840 JavaThread "RMI TCP Accept-58743"       daemon [_thread_in_native, id=12380, stack(0x0000004b5d800000,0x0000004b5d900000) (1024K)]
+  0x000002072fc3ae00 JavaThread "RMI TCP Accept-0"           daemon [_thread_in_native, id=8332, stack(0x0000004b5da00000,0x0000004b5db00000) (1024K)]
+  0x000002072fc42310 JavaThread "RMI Scheduler(0)"           daemon [_thread_blocked, id=10236, stack(0x0000004b5dc00000,0x0000004b5dd00000) (1024K)]
+  0x0000020734798450 JavaThread "mysql-cj-abandoned-connection-cleanup" daemon [_thread_blocked, id=12972, stack(0x0000004b5e300000,0x0000004b5e400000) (1024K)]
+  0x0000020736b51900 JavaThread "Live Reload Server"         daemon [_thread_in_native, id=10016, stack(0x0000004b5e700000,0x0000004b5e800000) (1024K)]
+  0x0000020736be5630 JavaThread "DestroyJavaVM"                     [_thread_blocked, id=11592, stack(0x0000004b5c100000,0x0000004b5c200000) (1024K)]
+  0x0000020736b52cb0 JavaThread "Catalina-utility-1"                [_thread_blocked, id=3348, stack(0x0000004b5bf00000,0x0000004b5c000000) (1024K)]
+  0x0000020736b51270 JavaThread "Catalina-utility-2"                [_thread_blocked, id=12988, stack(0x0000004b5d100000,0x0000004b5d200000) (1024K)]
+  0x0000020736b4f830 JavaThread "container-0"                       [_thread_blocked, id=9784, stack(0x0000004b5d300000,0x0000004b5d400000) (1024K)]
+  0x0000020736b4fec0 JavaThread "HikariPool-8 housekeeper"   daemon [_thread_blocked, id=6768, stack(0x0000004b5d900000,0x0000004b5da00000) (1024K)]
+  0x0000020736be4910 JavaThread "File Watcher"               daemon [_thread_blocked, id=976, stack(0x0000004b5e100000,0x0000004b5e200000) (1024K)]
+  0x0000020736be6350 JavaThread "http-nio-8088-exec-1"       daemon [_thread_blocked, id=1236, stack(0x0000004b5e200000,0x0000004b5e300000) (1024K)]
+  0x0000020736be69e0 JavaThread "http-nio-8088-exec-2"       daemon [_thread_blocked, id=13336, stack(0x0000004b5e500000,0x0000004b5e600000) (1024K)]
+=>0x0000020736be7070 JavaThread "http-nio-8088-exec-3"       daemon [_thread_in_vm, id=2220, stack(0x0000004b5e600000,0x0000004b5e700000) (1024K)]
+  0x0000020736be0e00 JavaThread "http-nio-8088-exec-4"       daemon [_thread_blocked, id=1068, stack(0x0000004b5e800000,0x0000004b5e900000) (1024K)]
+  0x0000020736be3bf0 JavaThread "http-nio-8088-exec-5"       daemon [_thread_blocked, id=5032, stack(0x0000004b5e900000,0x0000004b5ea00000) (1024K)]
+  0x0000020736be1b20 JavaThread "http-nio-8088-exec-6"       daemon [_thread_blocked, id=5828, stack(0x0000004b5ea00000,0x0000004b5eb00000) (1024K)]
+  0x0000020736be00e0 JavaThread "http-nio-8088-exec-7"       daemon [_thread_blocked, id=3188, stack(0x0000004b5eb00000,0x0000004b5ec00000) (1024K)]
+  0x0000020736be21b0 JavaThread "http-nio-8088-exec-8"       daemon [_thread_blocked, id=10460, stack(0x0000004b5ec00000,0x0000004b5ed00000) (1024K)]
+  0x0000020736be4fa0 JavaThread "http-nio-8088-exec-9"       daemon [_thread_blocked, id=7384, stack(0x0000004b5ed00000,0x0000004b5ee00000) (1024K)]
+  0x0000020736be2ed0 JavaThread "http-nio-8088-exec-10"      daemon [_thread_blocked, id=7552, stack(0x0000004b5ee00000,0x0000004b5ef00000) (1024K)]
+  0x0000020736be7700 JavaThread "http-nio-8088-Poller"       daemon [_thread_in_native, id=13688, stack(0x0000004b5ef00000,0x0000004b5f000000) (1024K)]
+  0x0000020736be1490 JavaThread "http-nio-8088-Acceptor"     daemon [_thread_in_native, id=1428, stack(0x0000004b5f000000,0x0000004b5f100000) (1024K)]
+Total: 33
+
+Other Threads:
+  0x000002072f1d50f0 VMThread "VM Thread"                           [id=11320, stack(0x0000004b5c800000,0x0000004b5c900000) (1024K)]
+  0x000002072f18cb10 WatcherThread "VM Periodic Task Thread"        [id=5272, stack(0x0000004b5c700000,0x0000004b5c800000) (1024K)]
+  0x0000020723153d70 WorkerThread "GC Thread#0"                     [id=8828, stack(0x0000004b5c200000,0x0000004b5c300000) (1024K)]
+  0x000002072fb69f40 WorkerThread "GC Thread#1"                     [id=7232, stack(0x0000004b5d400000,0x0000004b5d500000) (1024K)]
+  0x000002072fb820f0 WorkerThread "GC Thread#2"                     [id=5852, stack(0x0000004b5d500000,0x0000004b5d600000) (1024K)]
+  0x000002072fb82490 WorkerThread "GC Thread#3"                     [id=72, stack(0x0000004b5d600000,0x0000004b5d700000) (1024K)]
+  0x000002072315c6c0 ConcurrentGCThread "G1 Main Marker"            [id=412, stack(0x0000004b5c300000,0x0000004b5c400000) (1024K)]
+  0x000002072315d8c0 WorkerThread "G1 Conc#0"                       [id=9160, stack(0x0000004b5c400000,0x0000004b5c500000) (1024K)]
+  0x00000207231ae1e0 ConcurrentGCThread "G1 Refine#0"               [id=9580, stack(0x0000004b5c500000,0x0000004b5c600000) (1024K)]
+  0x00000207231b0460 ConcurrentGCThread "G1 Service"                [id=8508, stack(0x0000004b5c600000,0x0000004b5c700000) (1024K)]
+Total: 10
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000c2200000, size: 990 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+ CPUs: 4 total, 4 available
+ Memory: 3959M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Heap Region Size: 1M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 62M
+ Heap Max Capacity: 990M
+ Pre-touch: Disabled
+ Parallel Workers: 4
+ Concurrent Workers: 1
+ Concurrent Refinement Workers: 4
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 78848K, used 52120K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 23 young (23552K), 3 survivors (3072K)
+ Metaspace       used 85672K, committed 86400K, reserved 1179648K
+  class space    used 11417K, committed 11712K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x00000000c2200000, 0x00000000c2300000, 0x00000000c2300000|100%|HS|  |TAMS 0x00000000c2200000| PB 0x00000000c2200000| Complete 
+|   1|0x00000000c2300000, 0x00000000c2400000, 0x00000000c2400000|100%| O|  |TAMS 0x00000000c2300000| PB 0x00000000c2300000| Untracked 
+|   2|0x00000000c2400000, 0x00000000c24ffff0, 0x00000000c2500000| 99%| O|  |TAMS 0x00000000c2400000| PB 0x00000000c2400000| Untracked 
+|   3|0x00000000c2500000, 0x00000000c2600000, 0x00000000c2600000|100%| O|  |TAMS 0x00000000c2500000| PB 0x00000000c2500000| Untracked 
+|   4|0x00000000c2600000, 0x00000000c2700000, 0x00000000c2700000|100%| O|  |TAMS 0x00000000c2600000| PB 0x00000000c2600000| Untracked 
+|   5|0x00000000c2700000, 0x00000000c27fffc8, 0x00000000c2800000| 99%| O|  |TAMS 0x00000000c2700000| PB 0x00000000c2700000| Untracked 
+|   6|0x00000000c2800000, 0x00000000c2900000, 0x00000000c2900000|100%| O|  |TAMS 0x00000000c2800000| PB 0x00000000c2800000| Untracked 
+|   7|0x00000000c2900000, 0x00000000c29fff98, 0x00000000c2a00000| 99%| O|  |TAMS 0x00000000c2900000| PB 0x00000000c2900000| Untracked 
+|   8|0x00000000c2a00000, 0x00000000c2b00000, 0x00000000c2b00000|100%| O|  |TAMS 0x00000000c2a00000| PB 0x00000000c2a00000| Untracked 
+|   9|0x00000000c2b00000, 0x00000000c2bfffb0, 0x00000000c2c00000| 99%| O|  |TAMS 0x00000000c2b00000| PB 0x00000000c2b00000| Untracked 
+|  10|0x00000000c2c00000, 0x00000000c2cffff8, 0x00000000c2d00000| 99%| O|  |TAMS 0x00000000c2c00000| PB 0x00000000c2c00000| Untracked 
+|  11|0x00000000c2d00000, 0x00000000c2dfffe0, 0x00000000c2e00000| 99%| O|  |TAMS 0x00000000c2d00000| PB 0x00000000c2d00000| Untracked 
+|  12|0x00000000c2e00000, 0x00000000c2effff8, 0x00000000c2f00000| 99%| O|  |TAMS 0x00000000c2e00000| PB 0x00000000c2e00000| Untracked 
+|  13|0x00000000c2f00000, 0x00000000c2ffe380, 0x00000000c3000000| 99%| O|  |TAMS 0x00000000c2f00000| PB 0x00000000c2f00000| Untracked 
+|  14|0x00000000c3000000, 0x00000000c30ffff8, 0x00000000c3100000| 99%| O|  |TAMS 0x00000000c3000000| PB 0x00000000c3000000| Untracked 
+|  15|0x00000000c3100000, 0x00000000c31fffb8, 0x00000000c3200000| 99%| O|  |TAMS 0x00000000c3100000| PB 0x00000000c3100000| Untracked 
+|  16|0x00000000c3200000, 0x00000000c32ffff0, 0x00000000c3300000| 99%| O|  |TAMS 0x00000000c3200000| PB 0x00000000c3200000| Untracked 
+|  17|0x00000000c3300000, 0x00000000c33fffd8, 0x00000000c3400000| 99%| O|  |TAMS 0x00000000c3300000| PB 0x00000000c3300000| Untracked 
+|  18|0x00000000c3400000, 0x00000000c34fffc8, 0x00000000c3500000| 99%| O|  |TAMS 0x00000000c3400000| PB 0x00000000c3400000| Untracked 
+|  19|0x00000000c3500000, 0x00000000c35fffe0, 0x00000000c3600000| 99%| O|  |TAMS 0x00000000c3500000| PB 0x00000000c3500000| Untracked 
+|  20|0x00000000c3600000, 0x00000000c3700000, 0x00000000c3700000|100%| O|  |TAMS 0x00000000c3600000| PB 0x00000000c3600000| Untracked 
+|  21|0x00000000c3700000, 0x00000000c378b140, 0x00000000c3800000| 54%| O|  |TAMS 0x00000000c3700000| PB 0x00000000c3700000| Untracked 
+|  22|0x00000000c3800000, 0x00000000c38ffff8, 0x00000000c3900000| 99%| O|  |TAMS 0x00000000c3800000| PB 0x00000000c3800000| Untracked 
+|  23|0x00000000c3900000, 0x00000000c3900000, 0x00000000c3a00000|  0%| F|  |TAMS 0x00000000c3900000| PB 0x00000000c3900000| Untracked 
+|  24|0x00000000c3a00000, 0x00000000c3b00000, 0x00000000c3b00000|100%| O|  |TAMS 0x00000000c3a00000| PB 0x00000000c3a00000| Untracked 
+|  25|0x00000000c3b00000, 0x00000000c3b00000, 0x00000000c3c00000|  0%| F|  |TAMS 0x00000000c3b00000| PB 0x00000000c3b00000| Untracked 
+|  26|0x00000000c3c00000, 0x00000000c3c00000, 0x00000000c3d00000|  0%| F|  |TAMS 0x00000000c3c00000| PB 0x00000000c3c00000| Untracked 
+|  27|0x00000000c3d00000, 0x00000000c3e00000, 0x00000000c3e00000|100%| O|Cm|TAMS 0x00000000c3d00000| PB 0x00000000c3d00000| Complete 
+|  28|0x00000000c3e00000, 0x00000000c3f00000, 0x00000000c3f00000|100%| O|Cm|TAMS 0x00000000c3e00000| PB 0x00000000c3e00000| Complete 
+|  29|0x00000000c3f00000, 0x00000000c3f00000, 0x00000000c4000000|  0%| F|  |TAMS 0x00000000c3f00000| PB 0x00000000c3f00000| Untracked 
+|  30|0x00000000c4000000, 0x00000000c4100000, 0x00000000c4100000|100%| O|  |TAMS 0x00000000c4000000| PB 0x00000000c4000000| Untracked 
+|  31|0x00000000c4100000, 0x00000000c415d020, 0x00000000c4200000| 36%| S|CS|TAMS 0x00000000c4100000| PB 0x00000000c4100000| Complete 
+|  32|0x00000000c4200000, 0x00000000c4300000, 0x00000000c4300000|100%| O|  |TAMS 0x00000000c4200000| PB 0x00000000c4200000| Untracked 
+|  33|0x00000000c4300000, 0x00000000c4400000, 0x00000000c4400000|100%| O|  |TAMS 0x00000000c4300000| PB 0x00000000c4300000| Untracked 
+|  34|0x00000000c4400000, 0x00000000c4500000, 0x00000000c4500000|100%| O|  |TAMS 0x00000000c4400000| PB 0x00000000c4400000| Untracked 
+|  35|0x00000000c4500000, 0x00000000c4600000, 0x00000000c4600000|100%| S|CS|TAMS 0x00000000c4500000| PB 0x00000000c4500000| Complete 
+|  36|0x00000000c4600000, 0x00000000c4700000, 0x00000000c4700000|100%| S|CS|TAMS 0x00000000c4600000| PB 0x00000000c4600000| Complete 
+|  37|0x00000000c4700000, 0x00000000c4700000, 0x00000000c4800000|  0%| F|  |TAMS 0x00000000c4700000| PB 0x00000000c4700000| Untracked 
+|  38|0x00000000c4800000, 0x00000000c4800000, 0x00000000c4900000|  0%| F|  |TAMS 0x00000000c4800000| PB 0x00000000c4800000| Untracked 
+|  39|0x00000000c4900000, 0x00000000c4900000, 0x00000000c4a00000|  0%| F|  |TAMS 0x00000000c4900000| PB 0x00000000c4900000| Untracked 
+|  40|0x00000000c4a00000, 0x00000000c4a00000, 0x00000000c4b00000|  0%| F|  |TAMS 0x00000000c4a00000| PB 0x00000000c4a00000| Untracked 
+|  41|0x00000000c4b00000, 0x00000000c4b00000, 0x00000000c4c00000|  0%| F|  |TAMS 0x00000000c4b00000| PB 0x00000000c4b00000| Untracked 
+|  42|0x00000000c4c00000, 0x00000000c4c00000, 0x00000000c4d00000|  0%| F|  |TAMS 0x00000000c4c00000| PB 0x00000000c4c00000| Untracked 
+|  43|0x00000000c4d00000, 0x00000000c4d00000, 0x00000000c4e00000|  0%| F|  |TAMS 0x00000000c4d00000| PB 0x00000000c4d00000| Untracked 
+|  44|0x00000000c4e00000, 0x00000000c4e00000, 0x00000000c4f00000|  0%| F|  |TAMS 0x00000000c4e00000| PB 0x00000000c4e00000| Untracked 
+|  45|0x00000000c4f00000, 0x00000000c4f00000, 0x00000000c5000000|  0%| F|  |TAMS 0x00000000c4f00000| PB 0x00000000c4f00000| Untracked 
+|  46|0x00000000c5000000, 0x00000000c5000000, 0x00000000c5100000|  0%| F|  |TAMS 0x00000000c5000000| PB 0x00000000c5000000| Untracked 
+|  47|0x00000000c5100000, 0x00000000c5100000, 0x00000000c5200000|  0%| F|  |TAMS 0x00000000c5100000| PB 0x00000000c5100000| Untracked 
+|  48|0x00000000c5200000, 0x00000000c5200000, 0x00000000c5300000|  0%| F|  |TAMS 0x00000000c5200000| PB 0x00000000c5200000| Untracked 
+|  49|0x00000000c5300000, 0x00000000c5300000, 0x00000000c5400000|  0%| F|  |TAMS 0x00000000c5300000| PB 0x00000000c5300000| Untracked 
+|  50|0x00000000c5400000, 0x00000000c5400000, 0x00000000c5500000|  0%| F|  |TAMS 0x00000000c5400000| PB 0x00000000c5400000| Untracked 
+|  51|0x00000000c5500000, 0x00000000c5500000, 0x00000000c5600000|  0%| F|  |TAMS 0x00000000c5500000| PB 0x00000000c5500000| Untracked 
+|  52|0x00000000c5600000, 0x00000000c5600000, 0x00000000c5700000|  0%| F|  |TAMS 0x00000000c5600000| PB 0x00000000c5600000| Untracked 
+|  53|0x00000000c5700000, 0x00000000c5700000, 0x00000000c5800000|  0%| F|  |TAMS 0x00000000c5700000| PB 0x00000000c5700000| Untracked 
+|  54|0x00000000c5800000, 0x00000000c5800000, 0x00000000c5900000|  0%| F|  |TAMS 0x00000000c5800000| PB 0x00000000c5800000| Untracked 
+|  55|0x00000000c5900000, 0x00000000c5900000, 0x00000000c5a00000|  0%| F|  |TAMS 0x00000000c5900000| PB 0x00000000c5900000| Untracked 
+|  56|0x00000000c5a00000, 0x00000000c5a00000, 0x00000000c5b00000|  0%| F|  |TAMS 0x00000000c5a00000| PB 0x00000000c5a00000| Untracked 
+|  57|0x00000000c5b00000, 0x00000000c5bbf680, 0x00000000c5c00000| 74%| E|  |TAMS 0x00000000c5b00000| PB 0x00000000c5b00000| Complete 
+|  58|0x00000000c5c00000, 0x00000000c5d00000, 0x00000000c5d00000|100%| E|CS|TAMS 0x00000000c5c00000| PB 0x00000000c5c00000| Complete 
+|  59|0x00000000c5d00000, 0x00000000c5e00000, 0x00000000c5e00000|100%| E|CS|TAMS 0x00000000c5d00000| PB 0x00000000c5d00000| Complete 
+|  60|0x00000000c5e00000, 0x00000000c5f00000, 0x00000000c5f00000|100%| E|CS|TAMS 0x00000000c5e00000| PB 0x00000000c5e00000| Complete 
+|  61|0x00000000c5f00000, 0x00000000c6000000, 0x00000000c6000000|100%| E|CS|TAMS 0x00000000c5f00000| PB 0x00000000c5f00000| Complete 
+|  62|0x00000000c6000000, 0x00000000c6100000, 0x00000000c6100000|100%| E|CS|TAMS 0x00000000c6000000| PB 0x00000000c6000000| Complete 
+|  63|0x00000000c6100000, 0x00000000c6200000, 0x00000000c6200000|100%| E|CS|TAMS 0x00000000c6100000| PB 0x00000000c6100000| Complete 
+|  64|0x00000000c6200000, 0x00000000c6300000, 0x00000000c6300000|100%| E|CS|TAMS 0x00000000c6200000| PB 0x00000000c6200000| Complete 
+|  65|0x00000000c6300000, 0x00000000c6400000, 0x00000000c6400000|100%| E|CS|TAMS 0x00000000c6300000| PB 0x00000000c6300000| Complete 
+|  66|0x00000000c6400000, 0x00000000c6500000, 0x00000000c6500000|100%| E|CS|TAMS 0x00000000c6400000| PB 0x00000000c6400000| Complete 
+|  67|0x00000000c6500000, 0x00000000c6600000, 0x00000000c6600000|100%| E|CS|TAMS 0x00000000c6500000| PB 0x00000000c6500000| Complete 
+|  68|0x00000000c6600000, 0x00000000c6700000, 0x00000000c6700000|100%| E|CS|TAMS 0x00000000c6600000| PB 0x00000000c6600000| Complete 
+|  69|0x00000000c6700000, 0x00000000c6800000, 0x00000000c6800000|100%| E|CS|TAMS 0x00000000c6700000| PB 0x00000000c6700000| Complete 
+|  70|0x00000000c6800000, 0x00000000c6900000, 0x00000000c6900000|100%| E|CS|TAMS 0x00000000c6800000| PB 0x00000000c6800000| Complete 
+|  71|0x00000000c6900000, 0x00000000c6a00000, 0x00000000c6a00000|100%| E|CS|TAMS 0x00000000c6900000| PB 0x00000000c6900000| Complete 
+|  72|0x00000000c6a00000, 0x00000000c6b00000, 0x00000000c6b00000|100%| E|CS|TAMS 0x00000000c6a00000| PB 0x00000000c6a00000| Complete 
+|  73|0x00000000c6b00000, 0x00000000c6c00000, 0x00000000c6c00000|100%| E|CS|TAMS 0x00000000c6b00000| PB 0x00000000c6b00000| Complete 
+|  74|0x00000000c6c00000, 0x00000000c6d00000, 0x00000000c6d00000|100%| E|CS|TAMS 0x00000000c6c00000| PB 0x00000000c6c00000| Complete 
+|  75|0x00000000c6d00000, 0x00000000c6e00000, 0x00000000c6e00000|100%| E|CS|TAMS 0x00000000c6d00000| PB 0x00000000c6d00000| Complete 
+|  76|0x00000000c6e00000, 0x00000000c6f00000, 0x00000000c6f00000|100%| E|CS|TAMS 0x00000000c6e00000| PB 0x00000000c6e00000| Complete 
+
+Card table byte_map: [0x000002072ba90000,0x000002072bc80000] _byte_map_base: 0x000002072b47f000
+
+Marking Bits: (CMBitMap*) 0x0000020723154220
+ Bits: [0x000002072bc80000, 0x000002072cbf8000)
+
+Polling page: 0x00000207231e0000
+
+Metaspace:
+
+Usage:
+  Non-class:     72.51 MB used.
+      Class:     11.15 MB used.
+       Both:     83.66 MB used.
+
+Virtual space:
+  Non-class space:      128.00 MB reserved,      72.94 MB ( 57%) committed,  2 nodes.
+      Class space:        1.00 GB reserved,      11.44 MB (  1%) committed,  1 nodes.
+             Both:        1.12 GB reserved,      84.38 MB (  7%) committed. 
+
+Chunk freelists:
+   Non-Class:  6.16 MB
+       Class:  4.45 MB
+        Both:  10.60 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 140.62 MB
+CDS: off
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 6.
+num_arena_births: 1456.
+num_arena_deaths: 602.
+num_vsnodes_births: 3.
+num_vsnodes_deaths: 0.
+num_space_committed: 1353.
+num_space_uncommitted: 3.
+num_chunks_returned_to_freelist: 747.
+num_chunks_taken_from_freelist: 4523.
+num_chunk_merges: 152.
+num_chunk_splits: 2841.
+num_chunks_enlarged: 2167.
+num_inconsistent_stats: 0.
+
+CodeCache: size=49152Kb used=17009Kb max_used=23901Kb free=32142Kb
+ bounds [0x0000020728400000, 0x0000020729bf0000, 0x000002072b400000]
+ total_blobs=9630 nmethods=8896 adapters=657
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 6779.035 Thread 0x000002072f3846b0 15165       1       org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper::getLastRead (5 bytes)
+Event: 6779.036 Thread 0x000002072f3846b0 nmethod 15165 0x000002072860e510 code [0x000002072860e6a0, 0x000002072860e770]
+Event: 6779.036 Thread 0x000002072f3846b0 15166       1       org.apache.tomcat.util.net.SocketWrapperBase::getReadTimeout (5 bytes)
+Event: 6779.036 Thread 0x000002072f3846b0 nmethod 15166 0x0000020728611210 code [0x00000207286113a0, 0x0000020728611470]
+Event: 6783.447 Thread 0x000002072f3846b0 15167       1       java.lang.StackTraceElement::of (39 bytes)
+Event: 6783.452 Thread 0x000002072f3846b0 nmethod 15167 0x00000207285f5c10 code [0x00000207285f5de0, 0x00000207285f6110]
+Event: 6783.455 Thread 0x000002072f3846b0 15168       1       java.lang.StackTraceElement::of (30 bytes)
+Event: 6783.455 Thread 0x000002072f3846b0 nmethod 15168 0x000002072864a910 code [0x000002072864aac0, 0x000002072864abd8]
+Event: 6783.743 Thread 0x000002072f3846b0 15169       1       org.apache.tomcat.util.compat.JreCompat::isGraalAvailable (4 bytes)
+Event: 6783.743 Thread 0x000002072f3846b0 nmethod 15169 0x0000020728624610 code [0x00000207286247a0, 0x0000020728624848]
+Event: 6783.775 Thread 0x000002072f3846b0 15170       1       java.lang.invoke.MethodHandle::spreadArrayChecks (90 bytes)
+Event: 6783.779 Thread 0x000002072f3846b0 nmethod 15170 0x0000020728591b90 code [0x0000020728591ea0, 0x0000020728592950]
+Event: 6783.779 Thread 0x000002072f3846b0 15172       1       java.lang.invoke.LambdaFormBuffer::insertName (106 bytes)
+Event: 6783.779 Thread 0x000002072f3846b0 nmethod 15172 0x000002072864eb10 code [0x000002072864ecc0, 0x000002072864ee18]
+Event: 6783.779 Thread 0x000002072f3846b0 15171       1       java.lang.StackTraceElement::length (13 bytes)
+Event: 6783.779 Thread 0x000002072f3846b0 nmethod 15171 0x0000020728640c10 code [0x0000020728640da0, 0x0000020728640e98]
+Event: 6783.780 Thread 0x000002072f3846b0 15173       1       java.lang.invoke.LambdaFormEditor$TransformKey::ival (25 bytes)
+Event: 6783.781 Thread 0x000002072f3846b0 nmethod 15173 0x0000020728627b10 code [0x0000020728627ca0, 0x0000020728627d48]
+Event: 6783.791 Thread 0x000002072f3846b0 15174       1       java.lang.invoke.BoundMethodHandle$Species_LL::speciesData (4 bytes)
+Event: 6783.791 Thread 0x000002072f3846b0 nmethod 15174 0x0000020728636210 code [0x00000207286363a0, 0x0000020728636470]
+
+GC Heap History (20 events):
+Event: 1971.199 GC heap before
+{Heap before GC invocations=56 (full 7):
+ garbage-first heap   total 78848K, used 67026K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 35 young (35840K), 4 survivors (4096K)
+ Metaspace       used 85568K, committed 86336K, reserved 1179648K
+  class space    used 11392K, committed 11712K, reserved 1048576K
+}
+Event: 1971.227 GC heap after
+{Heap after GC invocations=57 (full 7):
+ garbage-first heap   total 78848K, used 34061K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85568K, committed 86336K, reserved 1179648K
+  class space    used 11392K, committed 11712K, reserved 1048576K
+}
+Event: 2806.842 GC heap before
+{Heap before GC invocations=57 (full 7):
+ garbage-first heap   total 78848K, used 69901K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 38 young (38912K), 2 survivors (2048K)
+ Metaspace       used 85570K, committed 86336K, reserved 1179648K
+  class space    used 11393K, committed 11712K, reserved 1048576K
+}
+Event: 2806.937 GC heap after
+{Heap after GC invocations=58 (full 7):
+ garbage-first heap   total 78848K, used 34801K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85570K, committed 86336K, reserved 1179648K
+  class space    used 11393K, committed 11712K, reserved 1048576K
+}
+Event: 3029.832 GC heap before
+{Heap before GC invocations=58 (full 7):
+ garbage-first heap   total 78848K, used 62449K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 30 young (30720K), 2 survivors (2048K)
+ Metaspace       used 85624K, committed 86400K, reserved 1179648K
+  class space    used 11406K, committed 11712K, reserved 1048576K
+}
+Event: 3029.874 GC heap after
+{Heap after GC invocations=59 (full 7):
+ garbage-first heap   total 78848K, used 34801K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85624K, committed 86400K, reserved 1179648K
+  class space    used 11406K, committed 11712K, reserved 1048576K
+}
+Event: 3035.572 GC heap before
+{Heap before GC invocations=60 (full 7):
+ garbage-first heap   total 78848K, used 71665K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 38 young (38912K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3035.581 GC heap after
+{Heap after GC invocations=61 (full 7):
+ garbage-first heap   total 78848K, used 34797K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3045.261 GC heap before
+{Heap before GC invocations=61 (full 7):
+ garbage-first heap   total 78848K, used 71661K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 38 young (38912K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3045.273 GC heap after
+{Heap after GC invocations=62 (full 7):
+ garbage-first heap   total 78848K, used 33101K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3049.349 GC heap before
+{Heap before GC invocations=62 (full 7):
+ garbage-first heap   total 78848K, used 70989K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 39 young (39936K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3049.360 GC heap after
+{Heap after GC invocations=63 (full 7):
+ garbage-first heap   total 78848K, used 33194K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3052.427 GC heap before
+{Heap before GC invocations=64 (full 7):
+ garbage-first heap   total 78848K, used 69034K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 38 young (38912K), 3 survivors (3072K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3052.435 GC heap after
+{Heap after GC invocations=65 (full 7):
+ garbage-first heap   total 78848K, used 33101K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3055.611 GC heap before
+{Heap before GC invocations=65 (full 7):
+ garbage-first heap   total 78848K, used 70989K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 39 young (39936K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3055.624 GC heap after
+{Heap after GC invocations=66 (full 7):
+ garbage-first heap   total 78848K, used 32385K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3060.102 GC heap before
+{Heap before GC invocations=66 (full 7):
+ garbage-first heap   total 78848K, used 69249K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 39 young (39936K), 3 survivors (3072K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 3060.110 GC heap after
+{Heap after GC invocations=67 (full 7):
+ garbage-first heap   total 78848K, used 32292K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 85579K, committed 86400K, reserved 1179648K
+  class space    used 11394K, committed 11712K, reserved 1048576K
+}
+Event: 6299.707 GC heap before
+{Heap before GC invocations=68 (full 7):
+ garbage-first heap   total 78848K, used 71204K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 40 young (40960K), 2 survivors (2048K)
+ Metaspace       used 85594K, committed 86400K, reserved 1179648K
+  class space    used 11397K, committed 11712K, reserved 1048576K
+}
+Event: 6299.722 GC heap after
+{Heap after GC invocations=69 (full 7):
+ garbage-first heap   total 78848K, used 32664K [0x00000000c2200000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 85594K, committed 86400K, reserved 1179648K
+  class space    used 11397K, committed 11712K, reserved 1048576K
+}
+
+Dll operation events (11 events):
+Event: 0.021 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\java.dll
+Event: 0.088 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\zip.dll
+Event: 0.560 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\jimage.dll
+Event: 0.584 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\net.dll
+Event: 0.590 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\nio.dll
+Event: 0.627 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\zip.dll
+Event: 0.751 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\management.dll
+Event: 0.823 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\management_ext.dll
+Event: 1.367 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\extnet.dll
+Event: 4.497 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\sunmscapi.dll
+Event: 8.860 Loaded shared library Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\verify.dll
+
+Deoptimization events (10 events):
+Event: 7.149 Thread 0x000002073479a520 DEOPT PACKING pc=0x0000020728b83ff4 sp=0x0000004b5dffccd0
+Event: 7.149 Thread 0x000002073479a520 DEOPT UNPACKING pc=0x0000020728454e23 sp=0x0000004b5dffc188 mode 0
+Event: 14.861 Thread 0x000002073479a520 DEOPT PACKING pc=0x00000207289e938c sp=0x0000004b5dffc140
+Event: 14.861 Thread 0x000002073479a520 DEOPT UNPACKING pc=0x0000020728454e23 sp=0x0000004b5dffb698 mode 0
+Event: 15.049 Thread 0x000002073479a520 DEOPT PACKING pc=0x00000207289e2d71 sp=0x0000004b5dffc3f0
+Event: 15.049 Thread 0x000002073479a520 DEOPT UNPACKING pc=0x0000020728454e23 sp=0x0000004b5dffb8f8 mode 3
+Event: 15.509 Thread 0x000002073479a520 DEOPT PACKING pc=0x00000207289da422 sp=0x0000004b5dff7f70
+Event: 15.509 Thread 0x000002073479a520 DEOPT UNPACKING pc=0x0000020728454e23 sp=0x0000004b5dff74b8 mode 3
+Event: 6783.311 Thread 0x0000020736be7070 DEOPT PACKING pc=0x0000020729378f22 sp=0x0000004b5e6fb760
+Event: 6783.321 Thread 0x0000020736be7070 DEOPT UNPACKING pc=0x0000020728454e23 sp=0x0000004b5e6fac48 mode 0
+
+Classes loaded (20 events):
+Event: 674.775 Loading class java/text/StringCharacterIterator done
+Event: 674.835 Loading class jdk/internal/loader/BootLoader$PackageHelper
+Event: 674.838 Loading class jdk/internal/loader/BootLoader$PackageHelper done
+Event: 674.846 Loading class java/lang/package-info
+Event: 674.846 Loading class java/lang/package-info done
+Event: 674.853 Loading class java/util/stream/ReduceOps$4
+Event: 674.853 Loading class java/util/stream/ReduceOps$4 done
+Event: 674.853 Loading class java/util/stream/ReduceOps$4ReducingSink
+Event: 674.853 Loading class java/util/stream/ReduceOps$4ReducingSink done
+Event: 674.910 Loading class org/w3c/dom/Node
+Event: 674.914 Loading class org/w3c/dom/Node done
+Event: 674.914 Loading class org/w3c/dom/Document
+Event: 674.917 Loading class org/w3c/dom/Document done
+Event: 675.191 Loading class java/util/package-info
+Event: 675.191 Loading class java/util/package-info done
+Event: 675.306 Loading class java/time/Instant$1
+Event: 675.306 Loading class java/time/Instant$1 done
+Event: 1088.798 Loading class java/io/FileOutputStream$1
+Event: 1088.798 Loading class java/io/FileOutputStream$1 done
+Event: 6783.928 Loading class java/util/stream/ReferencePipeline$4
+
+Classes unloaded (20 events):
+Event: 3030.287 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aaec00 'java/lang/invoke/LambdaForm$MH+0x0000000100aaec00'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aae800 'java/lang/invoke/LambdaForm$MH+0x0000000100aae800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aae000 'java/lang/invoke/LambdaForm$MH+0x0000000100aae000'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aadc00 'java/lang/invoke/LambdaForm$MH+0x0000000100aadc00'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aad800 'java/lang/invoke/LambdaForm$MH+0x0000000100aad800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aad400 'java/lang/invoke/LambdaForm$MH+0x0000000100aad400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aacc00 'java/lang/invoke/LambdaForm$MH+0x0000000100aacc00'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aac800 'java/lang/invoke/LambdaForm$MH+0x0000000100aac800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aac400 'java/lang/invoke/LambdaForm$MH+0x0000000100aac400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100aac000 'java/lang/invoke/LambdaForm$MH+0x0000000100aac000'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x00000001000c8400 'java/lang/invoke/LambdaForm$MH+0x00000001000c8400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100140c00 'java/lang/invoke/LambdaForm$MH+0x0000000100140c00'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100141400 'java/lang/invoke/LambdaForm$MH+0x0000000100141400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100142400 'java/lang/invoke/LambdaForm$MH+0x0000000100142400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100144800 'java/lang/invoke/LambdaForm$MH+0x0000000100144800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100147c00 'java/lang/invoke/LambdaForm$MH+0x0000000100147c00'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x0000000100148800 'java/lang/invoke/LambdaForm$MH+0x0000000100148800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x000000010014a400 'java/lang/invoke/LambdaForm$MH+0x000000010014a400'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x000000010014a800 'java/lang/invoke/LambdaForm$MH+0x000000010014a800'
+Event: 3030.288 Thread 0x000002072f1d50f0 Unloading class 0x000000010014b400 'java/lang/invoke/LambdaForm$MH+0x000000010014b400'
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 674.156 Thread 0x0000020736be6350 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c63978b8}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, long)'> (0x00000000c63978b8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 674.156 Thread 0x0000020736be6350 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c639b090}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, java.lang.Object, long, java.lang.Object)'> (0x00000000c639b090) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 674.258 Thread 0x0000020736be6350 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c61deb70}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, int, int)'> (0x00000000c61deb70) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 682.388 Thread 0x0000020736be00e0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c64a12a0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c64a12a0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 682.400 Thread 0x0000020736be00e0 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000000c631a188}: Found class java.lang.Object, but interface was expected> (0x00000000c631a188) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 840]
+Event: 682.498 Thread 0x0000020736be00e0 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000000c6067c60}: Found class java.lang.Object, but interface was expected> (0x00000000c6067c60) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 840]
+Event: 877.479 Thread 0x0000020736b50550 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c59b91f0}: static [B.<clinit>()V> (0x00000000c59b91f0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 1111]
+Event: 1088.867 Thread 0x0000020736be2ed0 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c50ff0a0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecialIFC(java.lang.Object, java.lang.Object, int, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c50ff0a0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 3277.491 Thread 0x0000020736b50550 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c60d7fe0}: static [B.<clinit>()V> (0x00000000c60d7fe0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 1111]
+Event: 6299.101 Thread 0x0000020736b4fec0 Exception <a 'java/io/IOException'{0x00000000c4b41390}> (0x00000000c4b41390) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.837 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c1b2b0}> (0x00000000c5c1b2b0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.838 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c1bb28}> (0x00000000c5c1bb28) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.838 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c1c128}> (0x00000000c5c1c128) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.838 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c1c9a0}> (0x00000000c5c1c9a0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.941 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c21938}> (0x00000000c5c21938) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6773.941 Thread 0x0000020736be4fa0 Exception <a 'java/io/IOException'{0x00000000c5c22460}> (0x00000000c5c22460) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6776.987 Thread 0x0000020736be69e0 Exception <a 'java/io/IOException'{0x00000000c5c7f150}> (0x00000000c5c7f150) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6776.988 Thread 0x0000020736be69e0 Exception <a 'java/io/IOException'{0x00000000c5c7fd18}> (0x00000000c5c7fd18) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6783.800 Thread 0x0000020736be7070 Exception <a 'java/io/IOException'{0x00000000c5b69978}> (0x00000000c5b69978) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 6783.800 Thread 0x0000020736be7070 Exception <a 'java/io/IOException'{0x00000000c5b69f40}> (0x00000000c5b69f40) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (20 events):
+Event: 6299.195 Executing VM operation: Cleanup
+Event: 6299.226 Executing VM operation: Cleanup done
+Event: 6299.707 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause)
+Event: 6299.722 Executing VM operation: G1CollectForAllocation (G1 Evacuation Pause) done
+Event: 6304.751 Executing VM operation: Cleanup
+Event: 6304.751 Executing VM operation: Cleanup done
+Event: 6308.776 Executing VM operation: Cleanup
+Event: 6308.776 Executing VM operation: Cleanup done
+Event: 6353.158 Executing VM operation: Cleanup
+Event: 6353.158 Executing VM operation: Cleanup done
+Event: 6394.251 Executing VM operation: HandshakeAllThreads (HandshakeForDeflation)
+Event: 6394.251 Executing VM operation: HandshakeAllThreads (HandshakeForDeflation) done
+Event: 6394.251 Executing VM operation: RendezvousGCThreads
+Event: 6394.251 Executing VM operation: RendezvousGCThreads done
+Event: 6774.587 Executing VM operation: Cleanup
+Event: 6774.587 Executing VM operation: Cleanup done
+Event: 6780.640 Executing VM operation: Cleanup
+Event: 6780.640 Executing VM operation: Cleanup done
+Event: 6783.667 Executing VM operation: Cleanup
+Event: 6783.713 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728512e10
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728512810
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x000002072851ad90
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728511d10
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x000002072851a690
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728510f10
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728518e10
+Event: 3060.254 Thread 0x000002072f1d50f0 flushing nmethod 0x0000020728505610
+Event: 6299.108 Thread 0x0000020734799800 Thread added: 0x0000020734799800
+Event: 6299.130 Thread 0x0000020734798ae0 Thread added: 0x0000020734798ae0
+Event: 6299.647 Thread 0x0000020734e376e0 Thread added: 0x0000020734e376e0
+Event: 6299.649 Thread 0x000002072fb2f1f0 Thread added: 0x000002072fb2f1f0
+Event: 6304.194 Thread 0x0000020734799800 Thread exited: 0x0000020734799800
+Event: 6304.895 Thread 0x000002072fb2f1f0 Thread exited: 0x000002072fb2f1f0
+Event: 6304.943 Thread 0x0000020734798ae0 Thread exited: 0x0000020734798ae0
+Event: 6308.523 Thread 0x0000020736b50550 Thread exited: 0x0000020736b50550
+Event: 6309.905 Thread 0x0000020734e376e0 Thread exited: 0x0000020734e376e0
+Event: 6352.895 Thread 0x00000207347970a0 Thread added: 0x00000207347970a0
+Event: 6352.900 Thread 0x000002072fc4e380 Thread exited: 0x000002072fc4e380
+Event: 6352.904 Thread 0x00000207347970a0 Thread exited: 0x00000207347970a0
+
+
+Dynamic libraries:
+0x00007ff654b20000 - 0x00007ff654b2e000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\javaw.exe
+0x00007ff969070000 - 0x00007ff969268000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff968e00000 - 0x00007ff968ebd000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff9667b0000 - 0x00007ff966aa6000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff966d00000 - 0x00007ff966e00000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff95e2f0000 - 0x00007ff95e308000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\jli.dll
+0x00007ff9687c0000 - 0x00007ff96895f000 	C:\Windows\System32\USER32.dll
+0x00007ff966e00000 - 0x00007ff966e22000 	C:\Windows\System32\win32u.dll
+0x00007ff968dd0000 - 0x00007ff968dfb000 	C:\Windows\System32\GDI32.dll
+0x00007ff959f50000 - 0x00007ff95a1ea000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ff966b40000 - 0x00007ff966c57000 	C:\Windows\System32\gdi32full.dll
+0x00007ff967e30000 - 0x00007ff967ece000 	C:\Windows\System32\msvcrt.dll
+0x00007ff966c60000 - 0x00007ff966cfd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff95e2d0000 - 0x00007ff95e2eb000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\VCRUNTIME140.dll
+0x00007ff968c10000 - 0x00007ff968c3f000 	C:\Windows\System32\IMM32.DLL
+0x00007ff95eea0000 - 0x00007ff95eeac000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\vcruntime140_1.dll
+0x00007ff94e010000 - 0x00007ff94e09e000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\msvcp140.dll
+0x00007ff91eba0000 - 0x00007ff91f922000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\server\jvm.dll
+0x00007ff9680d0000 - 0x00007ff968180000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff968960000 - 0x00007ff968a00000 	C:\Windows\System32\sechost.dll
+0x00007ff967fa0000 - 0x00007ff9680c3000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff966730000 - 0x00007ff966757000 	C:\Windows\System32\bcrypt.dll
+0x00007ff9686f0000 - 0x00007ff96875b000 	C:\Windows\System32\WS2_32.dll
+0x00007ff966580000 - 0x00007ff9665cb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ff9572a0000 - 0x00007ff9572aa000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff954470000 - 0x00007ff954497000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff966560000 - 0x00007ff966572000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ff9645b0000 - 0x00007ff9645c2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff961230000 - 0x00007ff96123a000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\jimage.dll
+0x00007ff955a10000 - 0x00007ff955bf4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff9556e0000 - 0x00007ff955714000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff966ab0000 - 0x00007ff966b32000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff9607c0000 - 0x00007ff9607df000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\java.dll
+0x00007ff95ff80000 - 0x00007ff95ff98000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\zip.dll
+0x00007ff967120000 - 0x00007ff96788c000 	C:\Windows\System32\SHELL32.dll
+0x00007ff9647b0000 - 0x00007ff964f4d000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ff968390000 - 0x00007ff9686e3000 	C:\Windows\System32\combase.dll
+0x00007ff966080000 - 0x00007ff9660ae000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ff967ed0000 - 0x00007ff967f9d000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ff968210000 - 0x00007ff9682bd000 	C:\Windows\System32\SHCORE.dll
+0x00007ff968760000 - 0x00007ff9687b5000 	C:\Windows\System32\shlwapi.dll
+0x00007ff966660000 - 0x00007ff966684000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ff95ff70000 - 0x00007ff95ff80000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\net.dll
+0x00007ff960b50000 - 0x00007ff960c5a000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ff965de0000 - 0x00007ff965e4a000 	C:\Windows\system32\mswsock.dll
+0x00007ff95fb10000 - 0x00007ff95fb26000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\nio.dll
+0x00007ff95e5d0000 - 0x00007ff95e5da000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\management.dll
+0x00007ff95e4c0000 - 0x00007ff95e4cb000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\management_ext.dll
+0x00007ff968180000 - 0x00007ff968188000 	C:\Windows\System32\PSAPI.DLL
+0x00007ff953d10000 - 0x00007ff953d27000 	C:\Windows\system32\napinsp.dll
+0x00007ff953cf0000 - 0x00007ff953d0b000 	C:\Windows\system32\pnrpnsp.dll
+0x00007ff953cd0000 - 0x00007ff953ce5000 	C:\Windows\system32\wshbth.dll
+0x00007ff963800000 - 0x00007ff96381d000 	C:\Windows\system32\NLAapi.dll
+0x00007ff965ac0000 - 0x00007ff965afb000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ff965b00000 - 0x00007ff965bca000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ff967890000 - 0x00007ff967898000 	C:\Windows\System32\NSI.dll
+0x00007ff953cb0000 - 0x00007ff953cc2000 	C:\Windows\System32\winrnr.dll
+0x00007ff95e1b0000 - 0x00007ff95e1ba000 	C:\Windows\System32\rasadhlp.dll
+0x00007ff95cdf0000 - 0x00007ff95ce70000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ff965fe0000 - 0x00007ff965ff8000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ff965700000 - 0x00007ff965734000 	C:\Windows\system32\rsaenh.dll
+0x00007ff966610000 - 0x00007ff96663e000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ff965fd0000 - 0x00007ff965fdc000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ff95e390000 - 0x00007ff95e399000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\extnet.dll
+0x00007ff95feb0000 - 0x00007ff95febe000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\sunmscapi.dll
+0x00007ff966f50000 - 0x00007ff9670ae000 	C:\Windows\System32\CRYPT32.dll
+0x00007ff9660f0000 - 0x00007ff966119000 	C:\Windows\SYSTEM32\ncrypt.dll
+0x00007ff9660b0000 - 0x00007ff9660eb000 	C:\Windows\SYSTEM32\NTASN1.dll
+0x00007ff95ff60000 - 0x00007ff95ff70000 	Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\verify.dll
+0x00007ff95b140000 - 0x00007ff95b147000 	C:\Windows\system32\wshunix.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530\jre\bin\server
+
+VM Arguments:
+jvm_args: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=58743 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -Dspring.application.admin.enabled=true -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=TWGAdminPanel -Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages 
+java_command: com.techpixe.TwgAdminPanelApplication --spring.output.ansi.enabled=always
+java_class_path (initial): C:\Users\pc\Documents\workspace-spring-tool-suite-4-4.22.0.RELEASE\TWGAdminPanel\target\classes;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.1\spring-boot-starter-data-jpa-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.1\spring-boot-starter-aop-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\spring-aop\6.1.10\spring-aop-6.1.10.jar;C:\Users\pc\.m2\repository\org\aspectj\aspectjweaver\1.9.22\aspectjweaver-1.9.22.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.1\spring-boot-starter-jdbc-3.3.1.jar;C:\Users\pc\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\pc\.m2\repository\org\springframework\spring-jdbc\6.1.10\spring-jdbc-6.1.10.jar;C:\Users\pc\.m2\repository\org\hibernate\orm\hibernate-core\6.5.2.Final\hibernate-core-6.5.2.Final.jar;C:\Users\pc\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\pc\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\pc\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\pc\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\pc\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\pc\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\pc\.m2\repository\net\bytebuddy\byte-buddy\1.14.17\byte-buddy-1.14.17.jar;C:\Users\pc\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\pc\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\pc\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\pc\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\pc\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\pc\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\pc\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\pc\.m2\repository\org\springframework\data\spring-data-jpa\3.3.1\spring-data-jpa-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\data\spring-data-commons\3.3.1\spring-data-commons-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\spring-orm\6.1.10\spring-orm-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\spring-context\6.1.10\spring-context-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\spring-tx\6.1.10\spring-tx-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\spring-beans\6.1.10\spring-beans-6.1.10.jar;C:\Users\pc\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\pc\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\pc\.m2\repository\org\springframework\spring-aspects\6.1.10\spring-aspects-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.3.1\spring-boot-starter-web-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.1\spring-boot-starter-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.1\spring-boot-starter-logging-3.3.1.jar;C:\Users\pc\.m2\repository\ch\qos\logback\logback-classic\1.5.6\logback-classic-1.5.6.jar;C:\Users\pc\.m2\repository\ch\qos\logback\logback-core\1.5.6\logback-core-1.5.6.jar;C:\Users\pc\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\pc\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\pc\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\pc\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.3.1\spring-boot-starter-json-3.3.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.1\jackson-databind-2.17.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.1\jackson-annotations-2.17.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.1\jackson-core-2.17.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.1\jackson-datatype-jdk8-2.17.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.1\jackson-datatype-jsr310-2.17.1.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.1\jackson-module-parameter-names-2.17.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.1\spring-boot-starter-tomcat-3.3.1.jar;C:\Users\pc\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.25\tomcat-embed-core-10.1.25.jar;C:\Users\pc\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.25\tomcat-embed-el-10.1.25.jar;C:\Users\pc\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.25\tomcat-embed-websocket-10.1.25.jar;C:\Users\pc\.m2\repository\org\springframework\spring-web\6.1.10\spring-web-6.1.10.jar;C:\Users\pc\.m2\repository\io\micrometer\micrometer-observation\1.13.1\micrometer-observation-1.13.1.jar;C:\Users\pc\.m2\repository\io\micrometer\micrometer-commons\1.13.1\micrometer-commons-1.13.1.jar;C:\Users\pc\.m2\repository\org\springframework\spring-webmvc\6.1.10\spring-webmvc-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\spring-expression\6.1.10\spring-expression-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-devtools\3.3.1\spring-boot-devtools-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot\3.3.1\spring-boot-3.3.1.jar;C:\Users\pc\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.1\spring-boot-autoconfigure-3.3.1.jar;C:\Users\pc\.m2\repository\com\mysql\mysql-connector-j\8.3.0\mysql-connector-j-8.3.0.jar;C:\Users\pc\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-ui\2.5.0\springdoc-openapi-starter-webmvc-ui-2.5.0.jar;C:\Users\pc\.m2\repository\org\springdoc\springdoc-openapi-starter-webmvc-api\2.5.0\springdoc-openapi-starter-webmvc-api-2.5.0.jar;C:\Users\pc\.m2\repository\org\springdoc\springdoc-openapi-starter-common\2.5.0\springdoc-openapi-starter-common-2.5.0.jar;C:\Users\pc\.m2\repository\io\swagger\core\v3\swagger-core-jakarta\2.2.21\swagger-core-jakarta-2.2.21.jar;C:\Users\pc\.m2\repository\org\apache\commons\commons-lang3\3.14.0\commons-lang3-3.14.0.jar;C:\Users\pc\.m2\repository\io\swagger\core\v3\swagger-annotations-jakarta\2.2.21\swagger-annotations-jakarta-2.2.21.jar;C:\Users\pc\.m2\repository\io\swagger\core\v3\swagger-models-jakarta\2.2.21\swagger-models-jakarta-2.2.21.jar;C:\Users\pc\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\pc\.m2\repository\com\fasterxml\jackson\dataformat\jackson-dataformat-yaml\2.17.1\jackson-dataformat-yaml-2.17.1.jar;C:\Users\pc\.m2\repository\org\webjars\swagger-ui\5.13.0\swagger-ui-5.13.0.jar;C:\Users\pc\.m2\repository\org\projectlombok\lombok\1.18.32\lombok-1.18.32.jar;C:\Users\pc\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\pc\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\pc\.m2\repository\org\springframework\spring-core\6.1.10\spring-core-6.1.10.jar;C:\Users\pc\.m2\repository\org\springframework\spring-jcl\6.1.10\spring-jcl-6.1.10.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 65011712                                  {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1038090240                                {product} {ergonomic}
+   size_t MaxNewSize                               = 622854144                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 4096                                   {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 1038090240                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=Z:/DurgaPrasad/SPRINGTOOLSUITE/sts-4.23.1.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530/jre/bin/server;Z:/DurgaPrasad/SPRINGTOOLSUITE/sts-4.23.1.RELEASE//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_21.0.3.v20240426-1530/jre/bin;C:\Python312\Scripts\;C:\Python312\;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\WinMerge;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\pc\AppData\Local\Microsoft\WindowsApps;C:\Users\pc\AppData\Local\Programs\Microsoft VS Code\bin;C:\src\flutter;C:\Program Files\Java\jdk-21\bin;C:\Users\pc\.dotnet\tools;C:\src\flutter\bin;C:\Users\pc\AppData\Roaming\npm;Z:\DurgaPrasad\SPRINGTOOLSUITE\sts-4.23.1.RELEASE;
+USERNAME=pc
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 5, GenuineIntel
+TMP=C:\Users\pc\AppData\Local\Temp
+TEMP=C:\Users\pc\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 2 days 20:24 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 5 microcode 0x7, cx8, cmov, fxsr, ht, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, tsc, tscinvbit, aes, clmul, clflush, rdtscp
+Processor Information for all 4 processors :
+  Max Mhz: 3191, Current Mhz: 3191, Mhz Limit: 3191
+
+Memory: 4k page, system-wide physical 3959M (607M free)
+TotalPageFile size 9953M (AvailPageFile size 3357M)
+current process WorkingSet (physical memory assigned to process): 124M, peak: 251M
+current process commit charge ("private bytes"): 295M, peak: 299M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.3+9-LTS) for windows-amd64 JRE (21.0.3+9-LTS), built on 2024-04-16T00:00:00Z by "admin" with MS VC++ 17.7 (VS2022)
+
+END.
