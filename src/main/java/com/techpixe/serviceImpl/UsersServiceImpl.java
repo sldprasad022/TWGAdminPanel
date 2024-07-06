@@ -43,4 +43,21 @@ public class UsersServiceImpl implements UsersService {
 		usersRepository.deleteById(id);
 	}
 
+	@Override
+	public Optional<Users> updateUsers(Long id, String Name, String Email, String Mobile, String Password) {
+		return usersRepository.findById(id).map(existingUser -> {
+			existingUser.setName(Name != null ? Name : existingUser.getName());
+			existingUser.setEmail(Email != null ? Email : existingUser.getEmail());
+			existingUser.setMobile(Mobile != null ? Mobile : existingUser.getMobile());
+			existingUser.setPassword(Password != null ? Password : existingUser.getPassword());
+
+			return usersRepository.save(existingUser);
+		});
+	}
+
+	@Override
+	public long getTotalUsersCount() {
+		return usersRepository.count();
+	}
+
 }

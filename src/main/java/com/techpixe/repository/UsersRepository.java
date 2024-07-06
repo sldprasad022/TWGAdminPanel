@@ -7,5 +7,5 @@ import com.techpixe.entity.Users;
 
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
-
+	long count();
 }
